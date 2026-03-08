@@ -1,0 +1,55 @@
+{
+  "task": "P1-032",
+  "title": "Language Integration (Phase 1 Exit Gate)",
+  "phase": 1,
+  "stage": 0,
+  "test_file": "lyralang/tests/language_integration.rs",
+  "tests": [
+    {
+      "name": "round_trip_parse_print",
+      "status": "pass",
+      "description": "Parse/print idempotency for integer literal, if-else, and function call",
+      "sources_tested": 3
+    },
+    {
+      "name": "type_soundness_verification",
+      "status": "pass",
+      "description": "Hindley-Milner inference produces judgments without errors",
+      "sources_tested": 4
+    },
+    {
+      "name": "compile_hello_world",
+      "status": "pass",
+      "description": "Full pipeline: parse -> check -> codegen -> bytecode for `let greeting = 42`",
+      "pipeline_stages": ["parse", "check", "codegen", "bytecode"]
+    },
+    {
+      "name": "compile_fibonacci",
+      "status": "pass",
+      "description": "Nested arithmetic compilation and semantic evaluation for `let fib = add(add(1, 1), add(1, 2))`",
+      "pipeline_stages": ["parse", "check", "codegen", "bytecode", "semantics"]
+    },
+    {
+      "name": "compile_symbolic_expression",
+      "status": "pass",
+      "description": "Conditional with nested calls for `let result = if eq(add(1, 2), 3) { 1 } else { 0 }`",
+      "pipeline_stages": ["parse", "check", "codegen", "bytecode"]
+    },
+    {
+      "name": "effect_checking_integration",
+      "status": "pass",
+      "description": "Effect checker processes arithmetic expression without errors"
+    },
+    {
+      "name": "pattern_matching_integration",
+      "status": "pass",
+      "description": "Boolean match exhaustiveness verified as complete"
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "exit_gate": "PASS"
+  }
+}
