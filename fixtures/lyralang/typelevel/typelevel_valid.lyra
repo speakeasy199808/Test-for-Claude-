@@ -1,0 +1,7 @@
+module typelevel_demo
+let n = 10
+let m = 20
+let sum = const_add(10, 20)
+let product = const_mul(3, 7)
+let tf = type_family_define("Vec", "Nat", "Type")
+let applied = type_family_apply("Vec", 10)

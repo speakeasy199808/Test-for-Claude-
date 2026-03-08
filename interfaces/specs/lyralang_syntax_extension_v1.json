@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "module": "macros",
+  "pipeline_stage": "P1-026",
+  "surface_forms": {
+    "syntax_define": {
+      "signature": "(name: String, template: String) -> Unit",
+      "effect": "registers macro definition in scope",
+      "arity": 2
+    },
+    "syntax_expand": {
+      "signature": "(name: String, args...) -> expanded_form",
+      "effect": "expands registered macro with hygienic bindings",
+      "min_arity": 1
+    }
+  },
+  "hygiene_model": {
+    "strategy": "gensym",
+    "binding_rename": "{original_name}#gensym{N}",
+    "counter": "monotonically_increasing_per_program"
+  },
+  "error_kinds": [
+    "ParseError",
+    "UndefinedMacro",
+    "ArityMismatch",
+    "HygieneViolation"
+  ],
+  "output_type": "SyntaxExtensionOutput",
+  "judgment_type": "SyntaxExtensionJudgment",
+  "normalization": "source_order_definition_and_expansion_collection"
+}

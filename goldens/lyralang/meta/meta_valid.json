@@ -1,0 +1,29 @@
+{
+  "fixture": "fixtures/lyralang/meta/meta_valid.lyra",
+  "module": "meta_demo",
+  "compile_time_eval_count": 2,
+  "quasi_quote_count": 1,
+  "all_static": true,
+  "errors": [],
+  "compile_time_evals": [
+    {
+      "index": 0,
+      "input_summary": "42",
+      "result_summary": "static_int(42)",
+      "statically_determined": true
+    },
+    {
+      "index": 1,
+      "input_summary": "true",
+      "result_summary": "static_bool(true)",
+      "statically_determined": true
+    }
+  ],
+  "quasi_quotes": [
+    {
+      "index": 0,
+      "quoted_form": "x",
+      "unquote_sites": []
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "module": "meta",
+  "pipeline_stage": "P1-027",
+  "surface_forms": {
+    "meta_eval": {
+      "signature": "(expr) -> compile_time_value",
+      "static_inputs": ["integer_literal", "boolean_literal", "string_literal"],
+      "dynamic_inputs": "opaque",
+      "min_arity": 1
+    },
+    "quasi_quote": {
+      "signature": "(expr) -> quoted_ast",
+      "effect": "increments quote nesting depth; records QuasiQuote",
+      "min_arity": 1
+    },
+    "quasi_unquote": {
+      "signature": "(expr) -> spliced_value",
+      "effect": "must appear inside quasi_quote; records unquote site",
+      "min_arity": 1
+    }
+  },
+  "static_eval_rules": {
+    "integer_literal": "static_int({value})",
+    "boolean_literal": "static_bool({value})",
+    "string_literal": "static_string({value})",
+    "other": "opaque"
+  },
+  "quote_depth_tracking": {
+    "initial_depth": 0,
+    "quasi_quote_increments": true,
+    "quasi_unquote_outside_quote": "UnbalancedQuasiQuote"
+  },
+  "error_kinds": [
+    "ParseError",
+    "NonStaticMetaEval",
+    "UnbalancedQuasiQuote",
+    "CyclicMetaDependency"
+  ],
+  "output_type": "MetaOutput",
+  "judgment_type": "MetaJudgment",
+  "normalization": "source_order_eval_and_quote_collection"
+}

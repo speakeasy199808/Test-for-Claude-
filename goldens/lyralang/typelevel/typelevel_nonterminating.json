@@ -1,0 +1,25 @@
+{
+  "fixture": "fixtures/lyralang/typelevel/typelevel_nonterminating.lyra",
+  "module": "typelevel_nonterminating_demo",
+  "const_generic_count": 0,
+  "type_family_count": 0,
+  "computation_count": 1,
+  "all_terminate": false,
+  "errors": [
+    {
+      "kind": "NonTerminatingComputation",
+      "message": "`const_add` contains an argument that cannot be proved to terminate",
+      "recovered": true
+    }
+  ],
+  "compile_time_computations": [
+    {
+      "index": 0,
+      "operation": "const_add",
+      "inputs": ["x", "y"],
+      "result": "unknown",
+      "terminates": false,
+      "termination_reason": "unbounded_recursion"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+module macros_undefined_demo
+let r = syntax_expand("unknown_macro", 42)

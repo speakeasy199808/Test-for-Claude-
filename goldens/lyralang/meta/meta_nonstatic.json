@@ -1,0 +1,22 @@
+{
+  "fixture": "fixtures/lyralang/meta/meta_nonstatic.lyra",
+  "module": "meta_nonstatic_demo",
+  "compile_time_eval_count": 1,
+  "quasi_quote_count": 0,
+  "all_static": false,
+  "errors": [
+    {
+      "kind": "NonStaticMetaEval",
+      "message": "`meta_eval` argument `some_variable` is not a compile-time constant",
+      "recovered": true
+    }
+  ],
+  "compile_time_evals": [
+    {
+      "index": 0,
+      "input_summary": "some_variable",
+      "result_summary": "opaque",
+      "statically_determined": false
+    }
+  ]
+}

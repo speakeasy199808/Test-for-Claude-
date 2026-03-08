@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "module": "typelevel",
+  "pipeline_stage": "P1-028",
+  "surface_forms": {
+    "const_add": {
+      "signature": "(a: Const, b: Const) -> Const",
+      "termination": "constant_folding when both args are literals",
+      "arity": 2
+    },
+    "const_mul": {
+      "signature": "(a: Const, b: Const) -> Const",
+      "termination": "constant_folding when both args are literals",
+      "arity": 2
+    },
+    "type_family_define": {
+      "signature": "(name: String, params: String, result: String) -> Unit",
+      "effect": "registers type family in scope",
+      "min_arity": 1
+    },
+    "type_family_apply": {
+      "signature": "(name: String, args...) -> Type",
+      "effect": "applies registered type family; requires prior definition",
+      "min_arity": 1
+    }
+  },
+  "const_generic_recognition": {
+    "pattern": "let {name} = {integer_literal | boolean_literal}",
+    "value_types": ["Int", "Bool", "Nat"]
+  },
+  "termination_reasons": {
+    "constant_folding": "all arguments are literal constants",
+    "bounded_recursion": "nested const arithmetic over literals",
+    "structural": "type family application over known family",
+    "unbounded_recursion": "argument contains free variable or unknown call"
+  },
+  "error_kinds": [
+    "ParseError",
+    "NonTerminatingComputation",
+    "KindMismatch",
+    "UndefinedTypeFamily"
+  ],
+  "output_type": "TypeLevelOutput",
+  "judgment_type": "TypeLevelJudgment",
+  "normalization": "source_order_const_and_computation_collection"
+}

@@ -1,0 +1,24 @@
+{
+  "fixture": "fixtures/lyralang/macros/macros_valid.lyra",
+  "module": "macros_demo",
+  "macro_definition_count": 1,
+  "macro_expansion_count": 1,
+  "hygienic": true,
+  "errors": [],
+  "macro_definitions": [
+    {
+      "name": "double",
+      "template_arity": 2,
+      "template_summary": "syntax_expand(double, $x) => $x + $x"
+    }
+  ],
+  "macro_expansions": [
+    {
+      "macro_name": "double",
+      "expansion_index": 0,
+      "argument_count": 1,
+      "hygienic": true,
+      "expanded_form": "syntax_expand(double, 5)"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "fixture": "fixtures/lyralang/typelevel/typelevel_valid.lyra",
+  "module": "typelevel_demo",
+  "const_generic_count": 2,
+  "type_family_count": 1,
+  "computation_count": 3,
+  "all_terminate": true,
+  "errors": [],
+  "const_generics": [
+    {
+      "name": "n",
+      "value_type": "Int",
+      "value_summary": "10"
+    },
+    {
+      "name": "m",
+      "value_type": "Int",
+      "value_summary": "20"
+    }
+  ],
+  "type_families": [
+    {
+      "name": "Vec",
+      "parameter_kinds": ["Nat"],
+      "result_kind": "Type",
+      "equation_count": 1
+    }
+  ],
+  "compile_time_computations": [
+    {
+      "index": 0,
+      "operation": "const_add",
+      "inputs": ["10", "20"],
+      "result": "30",
+      "terminates": true,
+      "termination_reason": "constant_folding"
+    },
+    {
+      "index": 1,
+      "operation": "const_mul",
+      "inputs": ["3", "7"],
+      "result": "21",
+      "terminates": true,
+      "termination_reason": "constant_folding"
+    },
+    {
+      "index": 2,
+      "operation": "type_apply",
+      "inputs": ["Vec", "10"],
+      "result": "Vec[10]",
+      "terminates": true,
+      "termination_reason": "structural"
+    }
+  ]
+}

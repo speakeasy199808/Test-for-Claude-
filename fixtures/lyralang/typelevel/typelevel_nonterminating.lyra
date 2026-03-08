@@ -1,0 +1,2 @@
+module typelevel_nonterminating_demo
+let bad = const_add(x, y)

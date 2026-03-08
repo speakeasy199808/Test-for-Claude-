@@ -1,0 +1,4 @@
+module meta_demo
+let x = meta_eval(42)
+let y = meta_eval(true)
+let q = quasi_quote(x)

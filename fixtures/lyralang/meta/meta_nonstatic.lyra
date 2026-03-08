@@ -1,0 +1,2 @@
+module meta_nonstatic_demo
+let z = meta_eval(some_variable)

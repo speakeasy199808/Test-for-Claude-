@@ -1,0 +1,23 @@
+{
+  "fixture": "fixtures/lyralang/macros/macros_undefined.lyra",
+  "module": "macros_undefined_demo",
+  "macro_definition_count": 0,
+  "macro_expansion_count": 1,
+  "hygienic": false,
+  "errors": [
+    {
+      "kind": "UndefinedMacro",
+      "message": "expansion of undefined macro `unknown_macro`",
+      "recovered": true
+    }
+  ],
+  "macro_expansions": [
+    {
+      "macro_name": "unknown_macro",
+      "expansion_index": 0,
+      "argument_count": 1,
+      "hygienic": false,
+      "expanded_form": "syntax_expand(unknown_macro, 42)"
+    }
+  ]
+}
