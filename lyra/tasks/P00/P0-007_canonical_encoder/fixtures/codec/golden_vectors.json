@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "description": "Golden byte vectors for all LyraCodec type families (P0-007)",
+  "cases": [
+    {
+      "name": "uint_zero",
+      "type": "UInt",
+      "value": 0,
+      "encoding_hex": "0100",
+      "note": "tag=0x01, varint=0x00"
+    },
+    {
+      "name": "uint_one",
+      "type": "UInt",
+      "value": 1,
+      "encoding_hex": "0101",
+      "note": "tag=0x01, varint=0x01"
+    },
+    {
+      "name": "uint_127",
+      "type": "UInt",
+      "value": 127,
+      "encoding_hex": "017f",
+      "note": "tag=0x01, varint=0x7f (single byte max)"
+    },
+    {
+      "name": "uint_128",
+      "type": "UInt",
+      "value": 128,
+      "encoding_hex": "018001",
+      "note": "tag=0x01, varint=0x80 0x01 (two-byte LEB128)"
+    },
+    {
+      "name": "uint_300",
+      "type": "UInt",
+      "value": 300,
+      "encoding_hex": "01ac02",
+      "note": "tag=0x01, varint=0xac 0x02"
+    },
+    {
+      "name": "sint_zero",
+      "type": "SInt",
+      "value": 0,
+      "encoding_hex": "0200",
+      "note": "tag=0x02, zigzag(0)=0"
+    },
+    {
+      "name": "sint_minus_one",
+      "type": "SInt",
+      "value": -1,
+      "encoding_hex": "0201",
+      "note": "tag=0x02, zigzag(-1)=1"
+    },
+    {
+      "name": "sint_one",
+      "type": "SInt",
+      "value": 1,
+      "encoding_hex": "0202",
+      "note": "tag=0x02, zigzag(1)=2"
+    },
+    {
+      "name": "bytes_two",
+      "type": "Bytes",
+      "value_hex": "dead",
+      "encoding_hex": "4002dead",
+      "note": "tag=0x40, len=2, payload=0xde 0xad"
+    },
+    {
+      "name": "string_lyra",
+      "type": "Str",
+      "value": "lyra",
+      "encoding_hex": "41046c797261",
+      "note": "tag=0x41, len=4, utf8='lyra'"
+    },
+    {
+      "name": "struct_person",
+      "type": "Struct",
+      "description": "schema_version=1, fields: id(1)=7, name(2)='lyra'",
+      "encoding_hex": "1001020101070241046c797261",
+      "note": "From P0-006 struct_example.json. tag=0x10, schema_ver=1, field_count=2, field1: id=1 uint=7, field2: id=2 str='lyra'"
+    },
+    {
+      "name": "vector_uint_1_2_3",
+      "type": "Vector",
+      "description": "elem_tag=0x01(uint), elements=[1,2,3]",
+      "encoding_hex": "200103010203",
+      "note": "tag=0x20, elem_tag=0x01, len=3, payloads: 01 02 03"
+    },
+    {
+      "name": "map_string_to_uint_sorted",
+      "type": "Map",
+      "description": "key_tag=0x41(string), val_tag=0x01(uint), entries: a->1, z->2 (canonical order)",
+      "encoding_hex": "30410102016101017a02",
+      "note": "tag=0x30, key_tag=0x41, val_tag=0x01, len=2, entry1: key='a'(01 61) val=1, entry2: key='z'(01 7a) val=2"
+    }
+  ]
+}

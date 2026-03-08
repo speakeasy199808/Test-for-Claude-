@@ -1,0 +1,60 @@
+# Phase 0 Execution TODO
+
+- [x] P0-003 Constitutional Math (spec + fixtures + acceptance + task control plane)
+- [x] P0-006 LyraCodec Spec (spec + schemas/examples + fixtures + acceptance)
+- [x] P0-001 Genesis State (k0 module family + interfaces + fixtures/goldens + tests)
+- [x] P0-004 Repo Architecture (workspace + canonical roots + ownership-aligned structure)
+- [x] P0-007 Canonical Encoder
+- [x] P0-008 Digest Algorithms
+- [x] P0-009 Virtual Time
+- [x] P0-010 Entropy Management
+- [x] P0-011 Determinism Verifier
+- [x] P0-012 Drift Detection
+- [x] P0-013 Incident Taxonomy
+- [x] P0-014 Recovery Protocols
+- [x] P0-015 CI/CD Pipeline
+- [x] P0-016 Versioning Strategy
+- [x] P0-017 Benchmarking Harness
+- [x] P0-018 Error Code System
+- [x] P0-019 Structured Logging
+- [x] P0-020 Code Review Protocol
+- [x] P0-021 Dependency Audit
+- [x] P0-022 Reproducible Builds
+- [x] P0-005 Self Verification Loop
+- [x] P0-002 Trust Roots
+- [x] P0-023 Foundation Integration + PHASE0_COMPLETE.md
+
+# Phase 1 Execution TODO
+
+- [x] P1-001 Lexical Structure (formal spec in `docs/lyralang/GRAMMAR.md`)
+- [x] P1-002 Grammatical Syntax
+- [x] P1-003 Type System Kernel
+- [x] P1-004 Effect System
+- [x] P1-005 Linear Types
+- [x] P1-006 Modal Types
+- [x] P1-007 Self Reference Primitives
+- [x] P1-008 Formal Semantics
+- [x] P1-009 Trait System
+- [x] P1-010 Error Handling
+- [x] P1-011 Concurrency Primitives
+- [ ] P1-012 Pattern Matching Exhaustiveness
+- [ ] P1-013 Lifetime Annotations
+- [ ] P1-014 FFI Specification
+- [x] P1-015 Seed Lexer
+- [x] P1-016 Seed Parser
+- [x] P1-017 Seed Type Checker
+- [x] P1-018 Seed Effect Checker
+- [x] P1-019 Seed Code Generator
+- [x] P1-020 Seed Bytecode Emitter
+- [x] P1-021 Seed Stdlib Minimal
+- [x] P1-022 Seed Test Framework
+- [x] P1-023 Temporal Logic
+- [ ] P1-024 Probabilistic Symbolic
+- [ ] P1-025 Proof Construction
+- [ ] P1-026 Syntax Extension
+- [ ] P1-027 Metaprogramming
+- [ ] P1-028 Type-Level Computation
+- [ ] P1-029 REPL Implementation
+- [ ] P1-030 LSP Server
+- [ ] P1-031 Source Map Generation
+- [ ] P1-032 Language Integration

@@ -1,0 +1,9 @@
+{
+  "fixture": "fixtures/lyralang/parser/parser_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "expected_token",
+      "message": "expected `=>` after match pattern"
+    }
+  ]
+}

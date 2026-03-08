@@ -1,0 +1,15 @@
+{
+  "fixture": "fixtures/lyralang/typechecker/typechecker_sample.lyra",
+  "program_type": "Int",
+  "program_effects": [],
+  "bindings": [
+    {
+      "name": "value",
+      "scheme": "Int"
+    },
+    {
+      "name": "decision",
+      "scheme": "Bool"
+    }
+  ]
+}

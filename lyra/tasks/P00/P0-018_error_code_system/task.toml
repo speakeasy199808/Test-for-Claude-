@@ -1,0 +1,31 @@
+[task]
+id = "P0-018"
+slug = "error_code_system"
+title = "Error Code System"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Core Module Implementation"
+work_class = "multi-module"
+
+[task.ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/"]
+
+[task.dependencies]
+hard = ["P0-004"]
+soft = ["P0-013"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    "k0/src/errors/mod.rs",
+    "k0/src/errors/code.rs",
+    "k0/src/errors/catalog.rs",
+    "lyra/tasks/P00/P0-018_error_code_system/artifacts/error-code-system-spec.md",
+]
+
+[task.acceptance]
+criteria_count = 11
+all_passed = true

@@ -1,0 +1,15 @@
+{
+  "fixture": "fixtures/lyralang/lexer/lexical_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "invalid_character",
+      "message": "invalid character `§`",
+      "recovered": true
+    },
+    {
+      "kind": "unterminated_block_comment",
+      "message": "unterminated block comment",
+      "recovered": true
+    }
+  ]
+}

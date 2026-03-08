@@ -1,0 +1,35 @@
+[task]
+id = "P1-020"
+slug = "seed_bytecode_emitter"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "LyraVM bytecode format using canonical LyraCodec encoding and version-stamped output."
+
+[task.dependencies]
+hard = ["P0-007", "P1-019"]
+soft = ["P1-008"]
+enables = ["P1-021", "P1-022", "P1-031"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/BYTECODE.md",
+  "interfaces/specs/lyravm_bytecode_v1.json",
+  "lyralang/src/bytecode/mod.rs",
+  "lyralang/src/bytecode/error.rs",
+  "lyralang/src/bytecode/emitter.rs",
+  "lyralang/tests/seed_bytecode_emitter_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-020_seed_bytecode_emitter/README.md",
+  "lyra/tasks/P01/P1-020_seed_bytecode_emitter/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-020_seed_bytecode_emitter/DESIGN.md",
+  "lyra/tasks/P01/P1-020_seed_bytecode_emitter/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-020_seed_bytecode_emitter/task.toml",
+  "lyra/tasks/P01/P1-020_seed_bytecode_emitter/artifacts/bytecode-traceability.md",
+]

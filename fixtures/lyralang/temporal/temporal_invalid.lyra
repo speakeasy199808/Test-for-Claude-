@@ -1,0 +1,2 @@
+module temporal_invalid
+always(1)

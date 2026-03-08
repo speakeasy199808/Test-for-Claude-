@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "description": "Scenario vectors for DeterminismVerifier (P0-011).",
+  "cases": [
+    {
+      "name": "deterministic_constant",
+      "description": "Function always returns [0xde, 0xad, 0xbe, 0xef] — must pass",
+      "run1_hex": "deadbeef",
+      "run2_hex": "deadbeef",
+      "expected_outcome": "Pass",
+      "expected_output_hex": "deadbeef"
+    },
+    {
+      "name": "nondeterministic_counter",
+      "description": "Function returns incrementing counter byte — must fail with DeterminismViolation",
+      "run1_hex": "00",
+      "run2_hex": "01",
+      "expected_outcome": "Fail",
+      "expected_error": "DeterminismViolation"
+    },
+    {
+      "name": "empty_output_rejected",
+      "description": "Function returns empty Vec — must fail with EmptyOutput unless allow_empty",
+      "run1_hex": "",
+      "run2_hex": "",
+      "expected_outcome": "Error",
+      "expected_error": "EmptyOutput"
+    },
+    {
+      "name": "empty_output_allowed",
+      "description": "Function returns empty Vec with verify_allow_empty — must pass",
+      "run1_hex": "",
+      "run2_hex": "",
+      "allow_empty": true,
+      "expected_outcome": "Pass",
+      "expected_output_hex": ""
+    },
+    {
+      "name": "codec_uint_42",
+      "description": "encode(&Value::UInt(42)) — canonical encoder must be deterministic",
+      "expected_outcome": "Pass",
+      "note": "Verified by verifier_with_codec_output test"
+    },
+    {
+      "name": "sha3_256_abc",
+      "description": "SHA-3-256(b'abc') — digest must be deterministic",
+      "expected_outcome": "Pass",
+      "expected_output_hex": "3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532",
+      "note": "Verified by verifier_with_digest_output and digest_algorithms_are_deterministic tests"
+    },
+    {
+      "name": "audit_log_timestamps_monotonic",
+      "description": "Two sequential verifications produce monotonically increasing VirtualTime timestamps",
+      "expected_outcome": "Pass",
+      "note": "Verified by record_timestamps_are_monotonic test"
+    }
+  ]
+}

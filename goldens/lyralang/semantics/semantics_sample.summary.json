@@ -1,0 +1,28 @@
+{
+  "fixture": "fixtures/lyralang/semantics/semantics_sample.lyra",
+  "program_type": "Int",
+  "denotation": "Int(5)",
+  "bindings": [
+    {
+      "name": "current",
+      "rendered": "Meta(current_program)"
+    },
+    {
+      "name": "value",
+      "rendered": "Int(5)"
+    }
+  ],
+  "rules": [
+    "E-SelfRef",
+    "E-LetBind",
+    "E-Int",
+    "E-Int",
+    "E-Call",
+    "E-LetBind",
+    "E-Var",
+    "E-Int",
+    "E-Call",
+    "E-Var",
+    "E-IfTrue"
+  ]
+}

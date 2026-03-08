@@ -1,0 +1,79 @@
+{
+  "fixture": "fixtures/lyralang/lexer/lexical_sample.lyra",
+  "normalized_newlines": true,
+  "significant_tokens": [
+    {
+      "kind": "keyword",
+      "keyword": "module",
+      "lexeme": "module"
+    },
+    {
+      "kind": "identifier",
+      "lexeme": "Δemo"
+    },
+    {
+      "kind": "keyword",
+      "keyword": "let",
+      "lexeme": "let"
+    },
+    {
+      "kind": "identifier",
+      "lexeme": "café"
+    },
+    {
+      "kind": "assign",
+      "lexeme": "="
+    },
+    {
+      "kind": "integer",
+      "lexeme": "42"
+    },
+    {
+      "kind": "keyword",
+      "keyword": "let",
+      "lexeme": "let"
+    },
+    {
+      "kind": "identifier",
+      "lexeme": "_shadow"
+    },
+    {
+      "kind": "assign",
+      "lexeme": "="
+    },
+    {
+      "kind": "identifier",
+      "lexeme": "value_2"
+    },
+    {
+      "kind": "keyword",
+      "keyword": "match",
+      "lexeme": "match"
+    },
+    {
+      "kind": "identifier",
+      "lexeme": "café"
+    },
+    {
+      "kind": "l_brace",
+      "lexeme": "{"
+    },
+    {
+      "kind": "underscore",
+      "lexeme": "_"
+    },
+    {
+      "kind": "fat_arrow",
+      "lexeme": "=>"
+    },
+    {
+      "kind": "string",
+      "lexeme": "\"ok\""
+    },
+    {
+      "kind": "r_brace",
+      "lexeme": "}"
+    }
+  ],
+  "diagnostics": []
+}

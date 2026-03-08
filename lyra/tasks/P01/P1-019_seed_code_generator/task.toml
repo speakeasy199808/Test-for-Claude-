@@ -1,0 +1,38 @@
+[task]
+id = "P1-019"
+slug = "seed_code_generator"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Deterministic Stage 0 register-VM IR generation with canonical format version and fixture-backed validation."
+
+[task.dependencies]
+hard = ["P1-002", "P1-003", "P1-004", "P1-005", "P1-006", "P1-007", "P1-016", "P1-017", "P1-018"]
+soft = ["P1-020", "P1-021", "P1-022"]
+enables = ["P1-020", "P1-021", "P1-022"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/CODEGEN.md",
+  "lyralang/src/codegen/mod.rs",
+  "lyralang/src/codegen/error.rs",
+  "lyralang/src/codegen/generator.rs",
+  "lyralang/tests/seed_code_generator_integration.rs",
+  "fixtures/lyralang/codegen/codegen_sample.lyra",
+  "fixtures/lyralang/codegen/codegen_invalid.lyra",
+  "goldens/lyralang/codegen/codegen_sample.program.json",
+  "goldens/lyralang/codegen/codegen_invalid.diagnostics.json",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-019_seed_code_generator/README.md",
+  "lyra/tasks/P01/P1-019_seed_code_generator/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-019_seed_code_generator/DESIGN.md",
+  "lyra/tasks/P01/P1-019_seed_code_generator/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-019_seed_code_generator/task.toml",
+  "lyra/tasks/P01/P1-019_seed_code_generator/artifacts/seed-code-generator-traceability.md",
+]

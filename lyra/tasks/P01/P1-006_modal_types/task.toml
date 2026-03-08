@@ -1,0 +1,36 @@
+[task]
+id = "P1-006"
+slug = "modal_types"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Epistemic type modalities: Fact, Hypothesis, Unknown, Necessary, Possible. Promotion rules with evidence."
+
+[task.dependencies]
+hard = ["P1-003", "P1-004", "P1-005", "P1-017"]
+soft = ["P1-008", "P1-025"]
+enables = ["P1-007", "P1-008", "P1-010", "P1-025"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/MODALITY.md",
+  "lyralang/src/types/ty.rs",
+  "lyralang/src/builtins.rs",
+  "lyralang/src/modal/mod.rs",
+  "lyralang/src/modal/error.rs",
+  "lyralang/src/modal/checker.rs",
+  "lyralang/tests/seed_modal_checker_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-006_modal_types/README.md",
+  "lyra/tasks/P01/P1-006_modal_types/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-006_modal_types/DESIGN.md",
+  "lyra/tasks/P01/P1-006_modal_types/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-006_modal_types/task.toml",
+  "lyra/tasks/P01/P1-006_modal_types/artifacts/modal-types-traceability.md",
+]

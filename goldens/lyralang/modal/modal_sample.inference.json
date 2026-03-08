@@ -1,0 +1,19 @@
+{
+  "fixture": "fixtures/lyralang/modal/modal_sample.lyra",
+  "program_type": "Int",
+  "bindings": [
+    {"name": "unknown_value", "modality": "Unknown", "payload": "Int"},
+    {"name": "hypothesis_value", "modality": "Hypothesis", "payload": "Int"},
+    {"name": "fact_value", "modality": "Fact", "payload": "Int"},
+    {"name": "necessary_value", "modality": "Necessary", "payload": "Int"},
+    {"name": "possible_value", "modality": "Possible", "payload": "Int"},
+    {"name": "witnessed_fact", "modality": "Fact", "payload": "Int"}
+  ],
+  "promotions": [
+    {"name": "promote_unknown_to_hypothesis", "from": "Unknown", "to": "Hypothesis", "evidence": "observation"},
+    {"name": "promote_hypothesis_to_fact", "from": "Hypothesis", "to": "Fact", "evidence": "proof"},
+    {"name": "promote_fact_to_necessary", "from": "Fact", "to": "Necessary", "evidence": "necessity"},
+    {"name": "promote_unknown_to_possible", "from": "Unknown", "to": "Possible", "evidence": "possibility"},
+    {"name": "promote_possible_to_fact", "from": "Possible", "to": "Fact", "evidence": "proof"}
+  ]
+}

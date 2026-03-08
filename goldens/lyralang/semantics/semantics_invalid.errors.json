@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/semantics/semantics_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "type_error",
+      "message": "string literal typing is deferred in Stage 0",
+      "line": 3,
+      "column": 9
+    }
+  ]
+}

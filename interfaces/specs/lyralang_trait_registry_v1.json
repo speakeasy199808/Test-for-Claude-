@@ -1,0 +1,34 @@
+{
+  "version": "lyralang-traits-v1",
+  "description": "Canonical seed trait registry contract for the Stage 0 LyraLang compiler.",
+  "traits": [
+    {
+      "name": "Eq",
+      "owner_root": "lyralang/",
+      "methods": [
+        {
+          "method_name": "eq",
+          "parameters": ["T", "T"],
+          "result": "Bool",
+          "latent_effects": []
+        }
+      ],
+      "default_implementation": "canonical rendered equality",
+      "derive_macro": "derive(Eq)"
+    },
+    {
+      "name": "Print",
+      "owner_root": "lyralang/",
+      "methods": [
+        {
+          "method_name": "print",
+          "parameters": ["T"],
+          "result": "Unit",
+          "latent_effects": ["io"]
+        }
+      ],
+      "default_implementation": "canonical rendered I/O output",
+      "derive_macro": "derive(Print)"
+    }
+  ]
+}

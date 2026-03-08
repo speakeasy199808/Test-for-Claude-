@@ -1,0 +1,38 @@
+[task]
+id = "P1-007"
+slug = "self_reference_primitives"
+phase = "P01"
+status = "complete"
+archetype = "documentation-operationalization"
+work_package_class = "docs-and-ops"
+primary_ownership_root = "docs/"
+underbuild_risk = "moderate"
+
+[task.mission]
+summary = "@current_program(), @current_receipt(), and @ledger_state() as built-in self-reference primitives with executable validation."
+
+[task.dependencies]
+hard = ["P1-001", "P1-002", "P1-003", "P1-006", "P1-016", "P1-017"]
+soft = ["P1-008", "P1-019", "P1-025"]
+enables = ["P1-008", "P1-019", "P1-025"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/SELF_REFERENCE.md",
+  "interfaces/specs/lyralang_self_reference_primitives_v1.json",
+  "docs/lyralang/GRAMMAR.md",
+  "lyralang/src/parser/ast.rs",
+  "lyralang/src/parser/parser.rs",
+  "lyralang/src/types/ty.rs",
+  "lyralang/src/checker/infer.rs",
+  "lyralang/src/codegen/generator.rs",
+  "lyralang/tests/seed_self_reference_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-007_self_reference_primitives/README.md",
+  "lyra/tasks/P01/P1-007_self_reference_primitives/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-007_self_reference_primitives/DESIGN.md",
+  "lyra/tasks/P01/P1-007_self_reference_primitives/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-007_self_reference_primitives/task.toml",
+  "lyra/tasks/P01/P1-007_self_reference_primitives/artifacts/self-reference-traceability.md",
+]

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "cases": [
+    { "name": "u0", "value": 0, "encoding_hex": "0100" },
+    { "name": "u1", "value": 1, "encoding_hex": "0101" },
+    { "name": "u127", "value": 127, "encoding_hex": "017f" },
+    { "name": "u128", "value": 128, "encoding_hex": "018001" }
+  ]
+}

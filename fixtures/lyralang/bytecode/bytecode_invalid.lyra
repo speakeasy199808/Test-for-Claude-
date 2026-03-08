@@ -1,0 +1,4 @@
+module bytecode_broken
+
+let x = "text"
+x

@@ -1,0 +1,14 @@
+{
+  "id": "INV-FOUNDATION-001",
+  "kind": "foundational_guarantees",
+  "description": "Boundary canonicalization, explicit ownership, and replayability are satisfied",
+  "checks": {
+    "canonical_boundary_representation": true,
+    "ownership_root_is_k0_for_foundational_logic": true,
+    "replay_inputs_persisted": true,
+    "receipts_persisted": true
+  },
+  "expected": {
+    "accepted": true
+  }
+}

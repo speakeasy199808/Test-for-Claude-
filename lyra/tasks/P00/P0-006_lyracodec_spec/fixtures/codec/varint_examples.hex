@@ -1,0 +1,15 @@
+# LyraCodec Varint Fixture Hex Vectors
+# Format: <name> <hex_bytes>
+# Each line is one encoding case matching varint_examples.json
+#
+# Encoding: 0x01 type_tag + LEB128 unsigned varint payload
+#
+# u0   -> value=0   -> tag=01, leb128=00          -> 01 00
+# u1   -> value=1   -> tag=01, leb128=01          -> 01 01
+# u127 -> value=127 -> tag=01, leb128=7f          -> 01 7f
+# u128 -> value=128 -> tag=01, leb128=80 01       -> 01 80 01
+
+u0   0100
+u1   0101
+u127 017f
+u128 018001

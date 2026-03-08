@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "operators": {
+    "always": [
+      "Bool",
+      "Temporal[Bool]"
+    ],
+    "eventually": [
+      "Bool",
+      "Temporal[Bool]"
+    ],
+    "until": [
+      "Temporal[Bool]",
+      "Temporal[Bool]",
+      "Temporal[Bool]"
+    ],
+    "since": [
+      "Temporal[Bool]",
+      "Temporal[Bool]",
+      "Temporal[Bool]"
+    ]
+  },
+  "normalization": "source_order_formula_collection",
+  "carrier_type": "Temporal[Bool]"
+}

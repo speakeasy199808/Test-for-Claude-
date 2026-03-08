@@ -1,0 +1,35 @@
+[package]
+name = "k0"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Lyra trusted deterministic foundation: canonicalization, verification, foundational runtime law, security-critical substrate"
+
+[dependencies]
+sha3 = { workspace = true }
+blake3 = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+serde_json = { workspace = true }
+criterion = { workspace = true }
+
+[[bench]]
+name = "digest_bench"
+harness = false
+
+[[bench]]
+name = "codec_bench"
+harness = false
+
+[[bench]]
+name = "time_bench"
+harness = false
+
+[[bench]]
+name = "entropy_bench"
+harness = false

@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "surface": [
+    "spawn(expr)",
+    "join(task)",
+    "select(task_a, task_b)",
+    "channel_int()",
+    "send_int(channel, value)",
+    "recv_int(channel)"
+  ],
+  "types": [
+    "Task[T]",
+    "Channel[Int]"
+  ],
+  "scheduling_policy": "source_order_spawn; lexical_join; leftmost_ready_select",
+  "race_policy": "linear resource capture is forbidden inside spawned expressions"
+}

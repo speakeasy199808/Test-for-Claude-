@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "description": "Canonical incident taxonomy fixture for P0-013. Maps all IncidentKind variants to their codes, severities, and constitutional status.",
+  "kinds": [
+    { "code": "INC-000", "name": "Unknown",                 "severity": "low",      "constitutional": false },
+    { "code": "INC-001", "name": "DeterminismViolation",    "severity": "critical", "constitutional": true  },
+    { "code": "INC-002", "name": "ConstitutionalBreach",    "severity": "critical", "constitutional": true  },
+    { "code": "INC-003", "name": "TrustRootViolation",      "severity": "critical", "constitutional": true  },
+    { "code": "INC-004", "name": "DigestMismatch",          "severity": "critical", "constitutional": true  },
+    { "code": "INC-005", "name": "EncodingError",           "severity": "high",     "constitutional": false },
+    { "code": "INC-006", "name": "DecodingError",           "severity": "high",     "constitutional": false },
+    { "code": "INC-007", "name": "SchemaVersionMismatch",   "severity": "high",     "constitutional": false },
+    { "code": "INC-008", "name": "StateTransitionRejected", "severity": "high",     "constitutional": false },
+    { "code": "INC-009", "name": "EntropyAnomaly",          "severity": "medium",   "constitutional": false },
+    { "code": "INC-010", "name": "TimeAnomaly",             "severity": "medium",   "constitutional": false },
+    { "code": "INC-011", "name": "OperationalDrift",        "severity": "medium",   "constitutional": false },
+    { "code": "INC-012", "name": "BoundaryViolation",       "severity": "medium",   "constitutional": false },
+    { "code": "INC-013", "name": "RecoverableError",        "severity": "low",      "constitutional": false }
+  ],
+  "severity_ordering": ["low", "medium", "high", "critical"],
+  "constitutional_kinds": ["INC-001", "INC-002", "INC-003", "INC-004"]
+}

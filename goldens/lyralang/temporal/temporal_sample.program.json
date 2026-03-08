@@ -1,0 +1,18 @@
+{
+  "fixture": "fixtures/lyralang/temporal/temporal_sample.lyra",
+  "module": "temporal_demo",
+  "program_type": "Temporal[Bool]",
+  "binding_count": 3,
+  "operators": [
+    "always",
+    "eventually",
+    "since",
+    "until"
+  ],
+  "normalized_formulas": [
+    "always(eq(1, 1))",
+    "eventually(eq(2, 2))",
+    "since(future, stable)",
+    "until(stable, history)"
+  ]
+}

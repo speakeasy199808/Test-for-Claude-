@@ -1,0 +1,38 @@
+[task]
+id = "P0-010"
+slug = "entropy_management"
+phase = "P00"
+status = "complete"
+archetype = "core-module-implementation"
+work_package_class = "multi-module"
+primary_ownership_root = "k0/"
+underbuild_risk = "low"
+
+[task.mission]
+summary = "Seeded deterministic PRNG. Hash-chained entropy pool. No ambient randomness permitted."
+
+[task.dependencies]
+hard = []
+soft = ["P0-008", "P0-009"]
+enables = ["P0-011", "P0-012", "P0-023"]
+
+[task.deliverables]
+production_code = [
+  "k0/src/entropy/mod.rs",
+  "k0/src/entropy/pool.rs",
+  "k0/src/entropy/error.rs",
+]
+control_plane = [
+  "lyra/tasks/P00/P0-010_entropy_management/README.md",
+  "lyra/tasks/P00/P0-010_entropy_management/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-010_entropy_management/DESIGN.md",
+  "lyra/tasks/P00/P0-010_entropy_management/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-010_entropy_management/task.toml",
+  "lyra/tasks/P00/P0-010_entropy_management/artifacts/entropy-traceability.md",
+  "lyra/tasks/P00/P0-010_entropy_management/fixtures/entropy/golden_vectors.json",
+]
+
+[task.evidence]
+test_command = "cargo test -p k0 --lib"
+total_tests = 138
+entropy_tests = 25

@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/concurrency/concurrency_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "linear_capture",
+      "message": "spawned expression captures linear resource `file` of type File",
+      "line": 3,
+      "column": 1
+    }
+  ]
+}

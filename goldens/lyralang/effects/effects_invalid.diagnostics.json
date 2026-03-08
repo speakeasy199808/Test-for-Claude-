@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/effects/effects_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "effect_violation",
+      "message": "call to `touch_state` requires effects state! but policy allows state; missing state!",
+      "line": 2,
+      "column": 1
+    }
+  ]
+}

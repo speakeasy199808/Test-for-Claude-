@@ -1,0 +1,7 @@
+{
+  "fixture": "fixtures/lyralang/traits/trait_invalid_registry.json",
+  "expected_error": {
+    "kind": "orphan_instance",
+    "message": "instance `Eq` for `Int` violates orphan rule: owner `third_party/` must match trait owner `lyralang/` or type owner `lyralang/`"
+  }
+}

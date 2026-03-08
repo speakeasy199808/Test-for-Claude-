@@ -1,0 +1,4 @@
+module std_math_rational_seed
+
+let ratio = ratio_from_ints(6, 3)
+0

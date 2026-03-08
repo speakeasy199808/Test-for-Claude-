@@ -1,0 +1,17 @@
+[package]
+name = "shells"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Lyra interaction shells and environment-facing orchestration surfaces"
+
+[dependencies]
+k0 = { path = "../k0" }
+k1 = { path = "../k1" }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

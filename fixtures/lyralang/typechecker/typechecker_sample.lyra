@@ -1,0 +1,9 @@
+module typing
+let value = id(1)
+{
+  let decision = eq_int(value, 1)
+  match decision {
+    true => add(value, 1)
+    false => 0
+  }
+}

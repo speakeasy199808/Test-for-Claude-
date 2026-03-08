@@ -1,0 +1,35 @@
+[workspace]
+resolver = "2"
+members = [
+    "k0",
+    "k1",
+    "lyralang",
+    "shells",
+    "slices",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Lyra Contributors"]
+
+[workspace.dependencies]
+# Digest algorithms (used by k0)
+sha3 = "0.10"
+blake3 = "1"
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Error handling
+thiserror = "1"
+anyhow = "1"
+# Compiler / language tooling
+regex = "1"
+unicode-ident = "1"
+# Logging
+tracing = "0.1"
+# Testing
+proptest = "1"
+# Benchmarking
+criterion = { version = "0.5", features = ["html_reports"] }

@@ -1,0 +1,20 @@
+{
+  "fixture": "fixtures/lyralang/traits/trait_sample.lyra",
+  "program_type": "Int",
+  "bindings": [
+    {
+      "name": "ok",
+      "scheme": "Bool"
+    }
+  ],
+  "registry_version": "lyralang-traits-v1",
+  "instance_count": 16,
+  "eq_resolution": {
+    "target": "eq_int",
+    "style": "explicit_builtin"
+  },
+  "print_resolution": {
+    "target": "canonical_print",
+    "style": "default_canonical_print"
+  }
+}

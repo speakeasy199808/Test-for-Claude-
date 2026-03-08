@@ -1,0 +1,19 @@
+{
+  "fixture": "fixtures/lyralang/concurrency/concurrency_sample.lyra",
+  "module": "concurrency_demo",
+  "program_type": "Int",
+  "scheduling_policy": "source_order_spawn; lexical_join; leftmost_ready_select",
+  "spawn_count": 2,
+  "spawn_expressions": [
+    "add(1, 2)",
+    "read_clock()"
+  ],
+  "join_count": 1,
+  "select_count": 1,
+  "channel_operations": [
+    "channel_int",
+    "send_int",
+    "recv_int"
+  ],
+  "race_free": true
+}

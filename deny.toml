@@ -1,0 +1,96 @@
+# deny.toml — cargo-deny configuration for the Lyra workspace
+# Task: P0-021 Dependency Audit
+# Documentation: DEPS.md, lyra/tasks/P00/P0-021_dependency_audit/
+#
+# Run locally:  cargo deny check advisories licenses sources
+# Run in CI:    .github/workflows/ci.yml (deny job)
+
+# ─── Advisories ──────────────────────────────────────────────────────────────
+
+[advisories]
+# Path to the local copy of the RustSec advisory database
+db-path = "~/.cargo/advisory-db"
+
+# URL to the advisory database git repository
+db-urls = ["https://github.com/rustsec/advisory-db"]
+
+# Deny crates with known vulnerabilities — hard failure
+vulnerability = "deny"
+
+# Warn on unmaintained crates — informational, non-blocking
+unmaintained = "warn"
+
+# Warn on yanked crate versions — informational, non-blocking
+yanked = "warn"
+
+# Warn on informational advisories — non-blocking
+notice = "warn"
+
+# No advisory ignores — all advisories are evaluated
+ignore = []
+
+# ─── Licenses ────────────────────────────────────────────────────────────────
+
+[licenses]
+# Deny crates with no declared license
+unlicensed = "deny"
+
+# License detection confidence threshold (0.0 to 1.0)
+confidence-threshold = 0.8
+
+# Copyleft licenses are not permitted — deny by default, allow only listed
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "Unicode-3.0",
+    "Unicode-DFS-2016",
+]
+
+# Deny any license not in the allow list
+deny = []
+
+# Exceptions for specific crates (none at this time)
+exceptions = []
+
+# The workspace itself is dual-licensed MIT OR Apache-2.0
+[[licenses.clarify]]
+name = "ring"
+expression = "MIT AND ISC AND OpenSSL"
+license-files = [{ path = "LICENSE", hash = 0xbd0eed23 }]
+
+# ─── Bans ────────────────────────────────────────────────────────────────────
+
+[bans]
+# Warn when multiple versions of the same crate exist in the dependency tree
+multiple-versions = "warn"
+
+# Allow wildcard dependencies (workspace uses version ranges)
+wildcards = "allow"
+
+# Highlight the dependency tree path for duplicates
+highlight = "all"
+
+# No specific crate denials
+deny = []
+
+# No specific crate allowances (all crates permitted unless banned)
+allow = []
+
+# ─── Sources ─────────────────────────────────────────────────────────────────
+
+[sources]
+# Deny dependencies from unknown registries
+unknown-registry = "deny"
+
+# Deny dependencies from unknown git repositories
+unknown-git = "deny"
+
+# Only crates.io is permitted as a registry source
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+
+# No git source overrides permitted
+allow-git = []

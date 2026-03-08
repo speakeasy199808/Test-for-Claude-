@@ -1,0 +1,6 @@
+module bytecode
+
+let program = @current_program()
+let receipt = @current_receipt()
+let total = add(2, 3)
+if eq_int(total, 5) { total } else { 0 }

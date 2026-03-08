@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/modal/modal_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "type_error",
+      "message": "call argument type must match parameter type: expected Evidence[observation] but found Evidence[proof]",
+      "line": 3,
+      "column": 1
+    }
+  ]
+}

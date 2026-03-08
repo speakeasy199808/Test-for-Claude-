@@ -1,0 +1,3 @@
+module modal_invalid
+let unknown_value = assume_unknown(1)
+promote_unknown_to_hypothesis(unknown_value, proof_evidence())

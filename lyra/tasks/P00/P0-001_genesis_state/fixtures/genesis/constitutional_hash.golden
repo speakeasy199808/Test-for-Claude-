@@ -1,0 +1,9 @@
+# Constitutional Hash Golden Fixture — P0-001
+# Algorithm: SHA-3-256
+# Input: canonical JSON bytes of GenesisState::canonical()
+# Input JSON: {"version":1,"system_id":"lyra","sequence":0,"declared_at_unix_secs":1704067200,"constitutional_version":1,"trust_root_fingerprints":[]}
+#
+# This value is computed by: cargo test -p k0 -- genesis::hash::tests::canonical_genesis_hash_is_known --nocapture
+# Update this file with the printed hash after first successful test run.
+#
+canonical_genesis_hash = a87d40ffa7f46cf01a793ca5f9a9093b4c783237d5594fb4fd2336cb9ff44c37

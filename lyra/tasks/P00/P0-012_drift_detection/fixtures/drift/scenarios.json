@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "description": "Scenario vectors for DriftDetector (P0-012).",
+  "cases": [
+    {
+      "name": "clean_deterministic",
+      "description": "Deterministic function — no drift, report is clean",
+      "fn_output_hex": "cafe",
+      "expected_outcome": "Pass",
+      "expected_severity": null,
+      "report": { "total_checks": 1, "passed": 1, "drift_count": 0 }
+    },
+    {
+      "name": "constitutional_drift",
+      "description": "Nondeterministic function (counter) — constitutional drift detected",
+      "run1_hex": "00",
+      "run2_hex": "01",
+      "expected_outcome": "Fail",
+      "expected_severity": "Constitutional",
+      "expected_error": "ConstitutionalDrift",
+      "report": { "total_checks": 1, "passed": 0, "drift_count": 1, "constitutional_count": 1 }
+    },
+    {
+      "name": "operational_drift_empty",
+      "description": "Empty output — operational drift detected",
+      "run1_hex": "",
+      "run2_hex": "",
+      "expected_outcome": "Fail",
+      "expected_severity": "Operational",
+      "expected_error": "EmptyOutputDrift",
+      "report": { "total_checks": 1, "passed": 0, "drift_count": 1, "operational_count": 1 }
+    },
+    {
+      "name": "allow_empty_passes",
+      "description": "Empty output with check_allow_empty — no drift",
+      "run1_hex": "",
+      "run2_hex": "",
+      "allow_empty": true,
+      "expected_outcome": "Pass",
+      "report": { "total_checks": 1, "passed": 1, "drift_count": 0 }
+    },
+    {
+      "name": "mixed_session",
+      "description": "2 clean + 1 constitutional + 2 operational — report aggregates correctly",
+      "report": {
+        "total_checks": 5,
+        "passed": 2,
+        "drift_count": 3,
+        "constitutional_count": 1,
+        "operational_count": 2
+      }
+    },
+    {
+      "name": "sha3_drift_free",
+      "description": "SHA-3-256 digest is drift-free across multiple inputs",
+      "inputs": ["", "abc", "lyra"],
+      "algorithm": "sha3-256",
+      "expected_outcome": "Pass",
+      "report": { "total_checks": 3, "passed": 3, "drift_count": 0 }
+    },
+    {
+      "name": "codec_drift_free",
+      "description": "Canonical encoder is drift-free for UInt, Str, Bytes",
+      "expected_outcome": "Pass",
+      "report": { "total_checks": 3, "passed": 3, "drift_count": 0 }
+    }
+  ]
+}

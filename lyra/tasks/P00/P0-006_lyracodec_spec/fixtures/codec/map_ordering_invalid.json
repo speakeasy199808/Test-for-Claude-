@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "type": "map<string,varint>",
+  "entries_provided_order": [
+    { "k": "z", "v": 1 },
+    { "k": "a", "v": 2 }
+  ],
+  "expected": {
+    "accepted": false,
+    "reason": "map entries are not lexicographically ordered by canonical key bytes"
+  }
+}

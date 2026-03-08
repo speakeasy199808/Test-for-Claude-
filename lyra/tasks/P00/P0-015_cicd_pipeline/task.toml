@@ -1,0 +1,29 @@
+[task]
+id = "P0-015"
+slug = "cicd_pipeline"
+title = "CI/CD Pipeline"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Infrastructure / Release"
+work_class = "infra-and-release"
+
+[task.ownership]
+primary_root = ".github/"
+secondary_roots = ["lyra/tasks/"]
+
+[task.dependencies]
+hard = []
+soft = ["P0-004"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    ".github/workflows/ci.yml",
+    "lyra/tasks/P00/P0-015_cicd_pipeline/artifacts/ci-pipeline-spec.md",
+]
+
+[task.acceptance]
+criteria_count = 8
+all_passed = true

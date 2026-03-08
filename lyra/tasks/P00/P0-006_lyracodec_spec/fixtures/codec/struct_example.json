@@ -1,0 +1,13 @@
+{
+  "schema_id": "example.person",
+  "schema_version": 1,
+  "field_ids": {
+    "id": 1,
+    "name": 2
+  },
+  "value": {
+    "id": 7,
+    "name": "lyra"
+  },
+  "expected_encoding_hex": "1001020101070241046c797261"
+}

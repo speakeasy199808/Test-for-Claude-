@@ -1,0 +1,4 @@
+module semantics_broken
+
+let x = "text"
+x

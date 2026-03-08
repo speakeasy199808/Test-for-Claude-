@@ -1,0 +1,34 @@
+[task]
+id = "P1-016"
+slug = "seed_parser"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Recursive descent parser with Pratt parsing for expressions. AST output. Every node carries source span."
+
+[task.dependencies]
+hard = ["P1-002", "P1-015"]
+soft = []
+enables = ["P1-017", "P1-022", "P1-031", "P1-032"]
+
+[task.deliverables]
+production_code = [
+  "lyralang/src/parser/mod.rs",
+  "lyralang/src/parser/ast.rs",
+  "lyralang/src/parser/error.rs",
+  "lyralang/src/parser/parser.rs",
+  "lyralang/tests/seed_parser_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-016_seed_parser/README.md",
+  "lyra/tasks/P01/P1-016_seed_parser/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-016_seed_parser/DESIGN.md",
+  "lyra/tasks/P01/P1-016_seed_parser/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-016_seed_parser/task.toml",
+  "lyra/tasks/P01/P1-016_seed_parser/artifacts/seed-parser-traceability.md",
+]

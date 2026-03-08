@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "description": "Virtual time scenario vectors for P0-009 acceptance verification",
+  "cases": [
+    {
+      "name": "new_clock_at_zero",
+      "description": "A freshly created VirtualClock starts at tick 0",
+      "ops": [],
+      "expected_now": 0
+    },
+    {
+      "name": "single_tick",
+      "description": "One tick advances from 0 to 1",
+      "ops": [
+        { "op": "tick" }
+      ],
+      "expected_now": 1
+    },
+    {
+      "name": "three_ticks_monotonic",
+      "description": "Three ticks produce 1, 2, 3 in order",
+      "ops": [
+        { "op": "tick" },
+        { "op": "tick" },
+        { "op": "tick" }
+      ],
+      "expected_now": 3
+    },
+    {
+      "name": "advance_by_100",
+      "description": "advance(100) moves clock from 0 to 100",
+      "ops": [
+        { "op": "advance", "n": 100 }
+      ],
+      "expected_now": 100
+    },
+    {
+      "name": "advance_zero_noop",
+      "description": "advance(0) does not change the clock",
+      "ops": [
+        { "op": "advance", "n": 5 },
+        { "op": "advance", "n": 0 }
+      ],
+      "expected_now": 5
+    },
+    {
+      "name": "merge_takes_max_other_larger",
+      "description": "merge with a clock at 15 when self is at 5 yields 15",
+      "ops": [
+        { "op": "advance", "n": 5 },
+        { "op": "merge", "other_now": 15 }
+      ],
+      "expected_now": 15
+    },
+    {
+      "name": "merge_keeps_self_when_larger",
+      "description": "merge with a clock at 3 when self is at 20 yields 20",
+      "ops": [
+        { "op": "advance", "n": 20 },
+        { "op": "merge", "other_now": 3 }
+      ],
+      "expected_now": 20
+    },
+    {
+      "name": "reset_to_forward_succeeds",
+      "description": "reset_to(10) when now=3 succeeds and sets now=10",
+      "ops": [
+        { "op": "advance", "n": 3 },
+        { "op": "reset_to", "value": 10, "expect_ok": true }
+      ],
+      "expected_now": 10
+    },
+    {
+      "name": "reset_to_same_value_succeeds",
+      "description": "reset_to(5) when now=5 is a no-op and succeeds",
+      "ops": [
+        { "op": "advance", "n": 5 },
+        { "op": "reset_to", "value": 5, "expect_ok": true }
+      ],
+      "expected_now": 5
+    },
+    {
+      "name": "reset_to_backward_rejected",
+      "description": "reset_to(2) when now=10 is rejected with BackwardReset error",
+      "ops": [
+        { "op": "advance", "n": 10 },
+        { "op": "reset_to", "value": 2, "expect_ok": false, "expected_error": "BackwardReset", "expected_current": 10, "expected_requested": 2 }
+      ],
+      "expected_now": 10
+    },
+    {
+      "name": "tick_after_advance",
+      "description": "tick after advance(99) yields 100",
+      "ops": [
+        { "op": "advance", "n": 99 },
+        { "op": "tick" }
+      ],
+      "expected_now": 100
+    },
+    {
+      "name": "saturation_at_u64_max",
+      "description": "next() on u64::MAX saturates rather than wrapping",
+      "note": "VirtualTime::new(18446744073709551615).next() == VirtualTime::new(18446744073709551615)",
+      "u64_max": 18446744073709551615
+    }
+  ]
+}

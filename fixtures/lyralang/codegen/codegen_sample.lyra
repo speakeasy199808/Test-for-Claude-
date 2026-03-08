@@ -1,0 +1,10 @@
+module stage0
+
+let program = @current_program()
+let receipt = @current_receipt()
+let ledger = @ledger_state()
+let seed = add(2, 3)
+{
+  let y = add(seed, 1)
+  if eq_int(y, 6) { y } else { 0 }
+}

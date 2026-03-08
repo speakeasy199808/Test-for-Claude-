@@ -1,0 +1,19 @@
+{
+  "schema_version": "lyralang-test-framework-v1",
+  "helpers": [
+    "workspace_root",
+    "fixture_path",
+    "golden_path",
+    "read_fixture",
+    "read_json_golden",
+    "canonical_json",
+    "assert_json_golden"
+  ],
+  "requirements": {
+    "runner": "cargo test",
+    "supports_unit_tests": true,
+    "supports_property_tests": true,
+    "supports_golden_json": true,
+    "deterministic": true
+  }
+}

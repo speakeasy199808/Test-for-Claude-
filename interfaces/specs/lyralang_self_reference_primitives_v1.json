@@ -1,0 +1,22 @@
+{
+  "version": "v1",
+  "kind": "lyralang_self_reference_primitives",
+  "primitives": [
+    {
+      "name": "@current_program()",
+      "type": "CurrentProgram",
+      "purity": "pure"
+    },
+    {
+      "name": "@current_receipt()",
+      "type": "CurrentReceipt",
+      "purity": "pure"
+    },
+    {
+      "name": "@ledger_state()",
+      "type": "LedgerState",
+      "purity": "pure"
+    }
+  ],
+  "format_version": "lyravm-stage0-ir-v1"
+}

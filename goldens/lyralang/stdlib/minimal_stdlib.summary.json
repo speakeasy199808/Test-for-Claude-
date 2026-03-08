@@ -1,0 +1,37 @@
+{
+  "manifest_version": "lyralang-stdlib-v1",
+  "compiled_modules": [
+    {
+      "name": "std.data.bool_guard",
+      "category": "data",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_data_bool_guard.lyra",
+      "program_type": "Int",
+      "codegen_format_version": "lyravm-stage0-ir-v1",
+      "bytecode_format_version": "lyravm-bytecode-v1"
+    },
+    {
+      "name": "std.io.print_status",
+      "category": "io",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_io_print_status.lyra",
+      "program_type": "Int",
+      "codegen_format_version": "lyravm-stage0-ir-v1",
+      "bytecode_format_version": "lyravm-bytecode-v1"
+    },
+    {
+      "name": "std.math.int_eq",
+      "category": "math",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_math_int_eq.lyra",
+      "program_type": "Bool",
+      "codegen_format_version": "lyravm-stage0-ir-v1",
+      "bytecode_format_version": "lyravm-bytecode-v1"
+    },
+    {
+      "name": "std.math.rational_seed",
+      "category": "math",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_math_rational_seed.lyra",
+      "program_type": "Int",
+      "codegen_format_version": "lyravm-stage0-ir-v1",
+      "bytecode_format_version": "lyravm-bytecode-v1"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[task]
+id = "P1-001"
+slug = "lexical_structure"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Unicode identifiers, reserved words, comments, whitespace normalization. Written as formal spec in GRAMMAR.md before implementation."
+
+[task.dependencies]
+hard = ["P0-023"]
+soft = []
+enables = ["P1-002", "P1-015"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/GRAMMAR.md",
+  "fixtures/lyralang/lexer/lexical_sample.lyra",
+  "fixtures/lyralang/lexer/lexical_invalid.lyra",
+  "goldens/lyralang/lexer/lexical_sample.tokens.json",
+  "goldens/lyralang/lexer/lexical_invalid.diagnostics.json",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-001_lexical_structure/README.md",
+  "lyra/tasks/P01/P1-001_lexical_structure/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-001_lexical_structure/DESIGN.md",
+  "lyra/tasks/P01/P1-001_lexical_structure/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-001_lexical_structure/task.toml",
+  "lyra/tasks/P01/P1-001_lexical_structure/artifacts/lexical-structure-traceability.md",
+]

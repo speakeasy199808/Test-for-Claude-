@@ -1,0 +1,34 @@
+[task]
+id = "P1-002"
+slug = "grammatical_syntax"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Expression-oriented language. Blocks as expressions. Pattern matching. EBNF grammar document."
+
+[task.dependencies]
+hard = ["P1-001"]
+soft = ["P1-015"]
+enables = ["P1-016", "P1-017"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/GRAMMAR.md",
+  "fixtures/lyralang/parser/parser_sample.lyra",
+  "fixtures/lyralang/parser/parser_invalid.lyra",
+  "goldens/lyralang/parser/parser_sample.ast.json",
+  "goldens/lyralang/parser/parser_invalid.diagnostics.json",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-002_grammatical_syntax/README.md",
+  "lyra/tasks/P01/P1-002_grammatical_syntax/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-002_grammatical_syntax/DESIGN.md",
+  "lyra/tasks/P01/P1-002_grammatical_syntax/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-002_grammatical_syntax/task.toml",
+  "lyra/tasks/P01/P1-002_grammatical_syntax/artifacts/grammatical-syntax-traceability.md",
+]

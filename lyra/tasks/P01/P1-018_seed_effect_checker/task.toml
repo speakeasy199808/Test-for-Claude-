@@ -1,0 +1,37 @@
+[task]
+id = "P1-018"
+slug = "seed_effect_checker"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Effect inference. Effect subtyping. Violation detection with explanation."
+
+[task.dependencies]
+hard = ["P1-004", "P1-016", "P1-017"]
+soft = ["P1-005", "P1-010"]
+enables = ["P1-005", "P1-010", "P1-011", "P1-019", "P1-020"]
+
+[task.deliverables]
+production_code = [
+  "lyralang/src/effects/mod.rs",
+  "lyralang/src/effects/error.rs",
+  "lyralang/src/effects/infer.rs",
+  "lyralang/tests/seed_effect_checker_integration.rs",
+  "fixtures/lyralang/effects/effects_sample.lyra",
+  "fixtures/lyralang/effects/effects_invalid.lyra",
+  "goldens/lyralang/effects/effects_sample.inference.json",
+  "goldens/lyralang/effects/effects_invalid.diagnostics.json",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-018_seed_effect_checker/README.md",
+  "lyra/tasks/P01/P1-018_seed_effect_checker/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-018_seed_effect_checker/DESIGN.md",
+  "lyra/tasks/P01/P1-018_seed_effect_checker/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-018_seed_effect_checker/task.toml",
+  "lyra/tasks/P01/P1-018_seed_effect_checker/artifacts/seed-effect-checker-traceability.md",
+]

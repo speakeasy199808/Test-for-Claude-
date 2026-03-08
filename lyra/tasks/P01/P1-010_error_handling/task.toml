@@ -1,0 +1,35 @@
+[task]
+id = "P1-010"
+slug = "error_handling"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Result and Option types. ? operator for propagation. Panic-free subset enforcement. Error type composition. Stack trace integration."
+
+[task.dependencies]
+hard = ["P1-002", "P1-003", "P1-017"]
+soft = ["P1-008"]
+enables = ["P1-011", "P1-012", "P1-013"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/ERRORS.md",
+  "interfaces/specs/lyralang_error_model_v1.json",
+  "lyralang/src/errors/mod.rs",
+  "lyralang/src/errors/error.rs",
+  "lyralang/src/errors/analyzer.rs",
+  "lyralang/tests/error_handling_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-010_error_handling/README.md",
+  "lyra/tasks/P01/P1-010_error_handling/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-010_error_handling/DESIGN.md",
+  "lyra/tasks/P01/P1-010_error_handling/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-010_error_handling/task.toml",
+  "lyra/tasks/P01/P1-010_error_handling/artifacts/error-traceability.md",
+]

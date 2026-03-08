@@ -1,0 +1,31 @@
+{
+  "fixture": "fixtures/lyralang/effects/effects_sample.lyra",
+  "program_effects": [
+    "entropy",
+    "io",
+    "proof",
+    "time",
+    "state!"
+  ],
+  "bindings": [
+    {
+      "name": "tick",
+      "initializer_effects": [
+        "time"
+      ]
+    },
+    {
+      "name": "nonce",
+      "initializer_effects": [
+        "entropy"
+      ]
+    }
+  ],
+  "policy": [
+    "entropy",
+    "io",
+    "proof",
+    "time",
+    "state!"
+  ]
+}

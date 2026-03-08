@@ -1,0 +1,32 @@
+[task]
+id = "P0-017"
+slug = "benchmarking_harness"
+title = "Benchmarking Harness"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Verification / Proof"
+work_class = "verification-only"
+
+[task.ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/"]
+
+[task.dependencies]
+hard = ["P0-007", "P0-008", "P0-009", "P0-010"]
+soft = ["P0-004"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    "k0/benches/digest_bench.rs",
+    "k0/benches/codec_bench.rs",
+    "k0/benches/time_bench.rs",
+    "k0/benches/entropy_bench.rs",
+    "lyra/tasks/P00/P0-017_benchmarking_harness/artifacts/benchmark-harness-spec.md",
+]
+
+[task.acceptance]
+criteria_count = 9
+all_passed = true
