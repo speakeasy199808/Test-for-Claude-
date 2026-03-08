@@ -1,0 +1,31 @@
+[task]
+id = "P0-022"
+slug = "reproducible_builds"
+title = "Reproducible Builds"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Core Module Implementation"
+work_class = "infra-and-release"
+
+[task.ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/", "./"]
+
+[task.dependencies]
+hard = ["P0-004"]
+soft = ["P0-015", "P0-016"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    "rust-toolchain.toml",
+    "BUILD.md",
+    "Cargo.lock",
+    "lyra/tasks/P00/P0-022_reproducible_builds/artifacts/reproducible-builds-spec.md",
+]
+
+[task.acceptance]
+criteria_count = 11
+all_passed = true

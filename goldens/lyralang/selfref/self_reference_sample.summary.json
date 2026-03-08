@@ -1,0 +1,24 @@
+{
+  "fixture": "fixtures/lyralang/selfref/self_reference_sample.lyra",
+  "program_type": "CurrentProgram",
+  "bindings": [
+    {
+      "name": "program",
+      "scheme": "CurrentProgram"
+    },
+    {
+      "name": "receipt",
+      "scheme": "CurrentReceipt"
+    },
+    {
+      "name": "ledger",
+      "scheme": "LedgerState"
+    }
+  ],
+  "instructions": [
+    "r0 = selfref @current_program",
+    "r1 = selfref @current_receipt",
+    "r2 = selfref @ledger_state",
+    "r3 = move r0"
+  ]
+}

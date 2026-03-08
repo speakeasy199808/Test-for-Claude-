@@ -1,0 +1,32 @@
+task_id = "P0-006"
+slug = "lyracodec_spec"
+phase = "P00"
+title = "LyraCodec Spec"
+primary_archetype = "Formal Specification"
+work_package_class = "multi-module"
+primary_ownership_root = "interfaces/"
+secondary_touched_roots = ["docs/", "fixtures/", "lyra/tasks/"]
+expected_deliverable_shape = "spec-plus-fixtures"
+dependency_posture = "spec-first"
+
+[dependencies]
+hard_prerequisites = ["phase-entry-gate"]
+soft_prerequisites = ["P0-003"]
+integration_note = "Consumed by P0-007 (canonical_encoder), P0-011 (determinism_verifier), P0-023 (foundation_integration)"
+
+[completion_gate]
+requires_correct_ownership = true
+requires_acceptance_pass = true
+requires_evidence_emitted = true
+requires_control_plane_updated = true
+
+[evidence]
+spec_documents = ["interfaces/specs/lyracodec.md"]
+fixture_files = [
+  "fixtures/codec/varint_examples.json",
+  "fixtures/codec/varint_examples.hex",
+  "fixtures/codec/struct_example.json",
+  "fixtures/codec/struct_example.hex",
+  "fixtures/codec/map_ordering_invalid.json",
+]
+traceability_artifacts = ["artifacts/codec-traceability.md"]

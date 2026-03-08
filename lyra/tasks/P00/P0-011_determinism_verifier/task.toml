@@ -1,0 +1,31 @@
+[task]
+id = "P0-011"
+slug = "determinism_verifier"
+phase = 0
+status = "complete"
+archetype = "verification"
+work_package_class = "constitutional-enforcement"
+
+[ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/", "fixtures/"]
+
+[deliverables]
+code = ["k0/src/verifier/mod.rs", "k0/src/verifier/determinism.rs", "k0/src/verifier/error.rs"]
+control_plane = [
+  "lyra/tasks/P00/P0-011_determinism_verifier/README.md",
+  "lyra/tasks/P00/P0-011_determinism_verifier/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-011_determinism_verifier/DESIGN.md",
+  "lyra/tasks/P00/P0-011_determinism_verifier/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-011_determinism_verifier/task.toml",
+  "lyra/tasks/P00/P0-011_determinism_verifier/fixtures/verifier/scenarios.json",
+  "lyra/tasks/P00/P0-011_determinism_verifier/artifacts/verifier-traceability.md",
+]
+
+[dependencies]
+hard = ["P0-003", "P0-007", "P0-008", "P0-009"]
+soft = ["P0-010"]
+
+[evidence]
+test_count = 27
+test_result = "163 passed; 0 failed"

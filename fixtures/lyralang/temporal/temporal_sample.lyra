@@ -1,0 +1,5 @@
+module temporal_demo
+let stable = always(eq(1, 1))
+let future = eventually(eq(2, 2))
+let history = since(future, stable)
+until(stable, history)

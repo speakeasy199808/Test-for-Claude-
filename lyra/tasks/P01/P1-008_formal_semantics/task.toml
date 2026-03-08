@@ -1,0 +1,34 @@
+[task]
+id = "P1-008"
+slug = "formal_semantics"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Denotational and operational semantics with a mathematical specification and Stage 0 soundness statement."
+
+[task.dependencies]
+hard = ["P1-002", "P1-003", "P1-007", "P1-016", "P1-017"]
+soft = ["P1-019", "P1-020"]
+enables = ["P1-020", "P1-025"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/SEMANTICS.md",
+  "lyralang/src/semantics/mod.rs",
+  "lyralang/src/semantics/error.rs",
+  "lyralang/src/semantics/evaluator.rs",
+  "lyralang/tests/seed_formal_semantics_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-008_formal_semantics/README.md",
+  "lyra/tasks/P01/P1-008_formal_semantics/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-008_formal_semantics/DESIGN.md",
+  "lyra/tasks/P01/P1-008_formal_semantics/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-008_formal_semantics/task.toml",
+  "lyra/tasks/P01/P1-008_formal_semantics/artifacts/semantics-traceability.md",
+]

@@ -1,0 +1,6 @@
+module introspect
+
+let program = @current_program()
+let receipt = @current_receipt()
+let ledger = @ledger_state()
+program

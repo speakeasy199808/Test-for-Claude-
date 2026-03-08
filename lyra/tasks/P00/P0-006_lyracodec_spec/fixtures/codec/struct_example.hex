@@ -1,0 +1,24 @@
+# LyraCodec Struct Fixture Hex Vector
+# Format: annotated hex encoding matching struct_example.json
+#
+# Schema: example.person, version=1
+# Fields: id=1 (varint, value=7), name=2 (utf8, value="lyra")
+#
+# Encoding breakdown:
+#   10          -> struct type tag
+#   01          -> schema_version varint = 1
+#   02          -> field_count varint = 2
+#   -- field 1: id=1, type=varint_unsigned(0x01), value=7
+#   01          -> field_id varint = 1
+#   01          -> value type tag = varint unsigned
+#   07          -> value = 7 (LEB128)
+#   -- field 2: id=2, type=utf8(0x41), value="lyra" (4 bytes)
+#   02          -> field_id varint = 2
+#   41          -> value type tag = utf8 string
+#   04          -> length varint = 4
+#   6c 79 72 61 -> "lyra" in UTF-8
+#
+# Full canonical encoding (no spaces):
+# 1001020101070241046c797261
+
+struct_example 1001020101070241046c797261

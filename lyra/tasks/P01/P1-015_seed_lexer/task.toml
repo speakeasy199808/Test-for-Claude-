@@ -1,0 +1,35 @@
+[task]
+id = "P1-015"
+slug = "seed_lexer"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Rust lexer for Lyra. Regex-based token stream. Error recovery. Handles all lexical_structure tokens."
+
+[task.dependencies]
+hard = ["P1-001"]
+soft = ["P1-002"]
+enables = ["P1-016", "P1-031"]
+
+[task.deliverables]
+production_code = [
+  "lyralang/src/lexer/mod.rs",
+  "lyralang/src/lexer/span.rs",
+  "lyralang/src/lexer/token.rs",
+  "lyralang/src/lexer/error.rs",
+  "lyralang/src/lexer/lexer.rs",
+  "lyralang/tests/seed_lexer_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-015_seed_lexer/README.md",
+  "lyra/tasks/P01/P1-015_seed_lexer/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-015_seed_lexer/DESIGN.md",
+  "lyra/tasks/P01/P1-015_seed_lexer/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-015_seed_lexer/task.toml",
+  "lyra/tasks/P01/P1-015_seed_lexer/artifacts/seed-lexer-traceability.md",
+]

@@ -1,0 +1,18 @@
+{
+  "id": "INV-NONBYPASS-001",
+  "kind": "non_bypassability",
+  "description": "Transition commit attempted before constitutional checks",
+  "transition_attempt": {
+    "canonical_decode_done": true,
+    "invariant_validation_done": false,
+    "authority_verification_done": false,
+    "admissibility_decision_done": false,
+    "commit_done": true,
+    "receipt_emitted": false
+  },
+  "expected": {
+    "accepted": false,
+    "violation_code": "NBP_BYPASS_ATTEMPT",
+    "must_emit_incident": true
+  }
+}

@@ -1,0 +1,3 @@
+module concurrency_violation
+let file = open_file()
+spawn(close_file(file))

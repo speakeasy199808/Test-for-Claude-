@@ -1,0 +1,30 @@
+[task]
+id = "P0-020"
+slug = "code_review_protocol"
+title = "Code Review Protocol"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Interface/Bridge"
+work_class = "multi-module"
+
+[task.ownership]
+primary_root = "k0/"
+secondary_roots = [".github/", "lyra/tasks/"]
+
+[task.dependencies]
+hard = ["P0-004"]
+soft = ["P0-015", "P0-016"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    ".github/CODEOWNERS",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    "lyra/tasks/P00/P0-020_code_review_protocol/artifacts/code-review-protocol-spec.md",
+]
+
+[task.acceptance]
+criteria_count = 10
+all_passed = true

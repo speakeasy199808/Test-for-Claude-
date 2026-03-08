@@ -1,0 +1,24 @@
+{
+  "schema_id": "lyravm.bytecode",
+  "schema_version": 1,
+  "format_version": "lyravm-bytecode-v1",
+  "encoding": "LyraCodec",
+  "top_level_fields": {
+    "1": "format_version:string",
+    "2": "module:string",
+    "3": "ir_format_version:string",
+    "4": "result_type:string",
+    "5": "register_count:uint",
+    "6": "entry_register:uint",
+    "7": "instruction_count:uint",
+    "8": "instructions:vector<instruction>"
+  },
+  "instruction_schema": {
+    "schema_version": 1,
+    "fields": {
+      "1": "opcode:string",
+      "2": "operands:vector<string>",
+      "3": "text:string"
+    }
+  }
+}

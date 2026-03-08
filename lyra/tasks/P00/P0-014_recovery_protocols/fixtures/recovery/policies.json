@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "description": "Canonical recovery policy fixture for P0-014. Maps severity tiers to action sequences and expected outcomes.",
+  "policies": [
+    {
+      "severity": "critical",
+      "actions": ["log", "isolate", "halt"],
+      "expected_outcome": "Halted",
+      "halts": true,
+      "escalates": false,
+      "rolls_back": false,
+      "example_kinds": ["DeterminismViolation", "ConstitutionalBreach", "TrustRootViolation", "DigestMismatch"]
+    },
+    {
+      "severity": "high",
+      "actions": ["log", "rollback", "escalate"],
+      "expected_outcome": "Escalated",
+      "halts": false,
+      "escalates": true,
+      "rolls_back": true,
+      "example_kinds": ["EncodingError", "DecodingError", "SchemaVersionMismatch", "StateTransitionRejected"]
+    },
+    {
+      "severity": "medium",
+      "actions": ["log", "retry", "escalate"],
+      "expected_outcome": "Escalated",
+      "halts": false,
+      "escalates": true,
+      "rolls_back": false,
+      "example_kinds": ["EntropyAnomaly", "TimeAnomaly", "OperationalDrift", "BoundaryViolation"]
+    },
+    {
+      "severity": "low",
+      "actions": ["log"],
+      "expected_outcome": "Recovered",
+      "halts": false,
+      "escalates": false,
+      "rolls_back": false,
+      "example_kinds": ["RecoverableError", "Unknown"]
+    }
+  ],
+  "invariants": [
+    "All policies include 'log' as the first action.",
+    "Only Critical severity policies include 'halt'.",
+    "Only Critical severity policies include 'isolate'.",
+    "High severity policies include 'rollback'.",
+    "High and Medium severity policies include 'escalate'.",
+    "Low severity policies contain only 'log'."
+  ]
+}

@@ -1,0 +1,56 @@
+# CODEOWNERS — LyraOS Repository
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# This file defines code ownership for automated review assignment.
+# When a PR modifies files matching a pattern, GitHub automatically
+# requests reviews from the listed owners.
+#
+# Review Tiers (P0-020):
+#   Critical  — k0/ requires dual-review (2 approvals from @lyra-core)
+#   Standard  — k1/, lyralang/, shells/, slices/ require single-review
+#   Docs      — documentation changes require single-review
+#   Infra     — .github/ changes require core team review
+#
+# IMPORTANT: The last matching pattern takes precedence.
+# Order patterns from least specific to most specific.
+
+# ─────────────────────────────────────────────────────────
+# Default: all files require at least one review
+# ─────────────────────────────────────────────────────────
+*                           @lyra-contributors
+
+# ─────────────────────────────────────────────────────────
+# Tier: Standard — application-layer crates (single review)
+# ─────────────────────────────────────────────────────────
+/k1/                        @lyra-contributors
+/lyralang/                  @lyra-contributors
+/shells/                    @lyra-contributors
+/slices/                    @lyra-contributors
+
+# ─────────────────────────────────────────────────────────
+# Tier: Critical — constitutional kernel (DUAL REVIEW)
+# Any change to k0/ requires approval from TWO @lyra-core members.
+# This is enforced by listing two owners AND setting branch
+# protection to require 2 approving reviews from code owners.
+# ─────────────────────────────────────────────────────────
+/k0/                        @lyra-core/kernel-reviewers @lyra-core/kernel-reviewers-2
+
+# ─────────────────────────────────────────────────────────
+# Tier: Infra — CI/CD and repository configuration
+# Prevents unauthorized CI tampering.
+# ─────────────────────────────────────────────────────────
+/.github/                   @lyra-core
+/.github/workflows/         @lyra-core
+
+# ─────────────────────────────────────────────────────────
+# Tier: Docs — documentation and task files (single review)
+# ─────────────────────────────────────────────────────────
+/lyra/tasks/                @lyra-contributors
+/interfaces/                @lyra-contributors
+*.md                        @lyra-contributors
+
+# ─────────────────────────────────────────────────────────
+# Root configuration files
+# ─────────────────────────────────────────────────────────
+/Cargo.toml                 @lyra-core
+/Cargo.lock                 @lyra-core

@@ -1,0 +1,5 @@
+module semantics
+
+let current = @current_program()
+let value = add(2, 3)
+if eq_int(value, 5) { value } else { 0 }

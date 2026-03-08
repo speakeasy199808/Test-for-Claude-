@@ -1,0 +1,3 @@
+module framework
+let value = add(1, 2)
+value

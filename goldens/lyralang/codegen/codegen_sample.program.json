@@ -1,0 +1,31 @@
+{
+  "fixture": "fixtures/lyralang/codegen/codegen_sample.lyra",
+  "format_version": "lyravm-stage0-ir-v1",
+  "module": "stage0",
+  "result_type": "Int",
+  "entry_register": "r12",
+  "register_count": 15,
+  "instructions": [
+    "r0 = selfref @current_program",
+    "r1 = selfref @current_receipt",
+    "r2 = selfref @ledger_state",
+    "r3 = const.int 2",
+    "r4 = const.int 3",
+    "r5 = call add(r3, r4)",
+    "r6 = move r5",
+    "r7 = const.int 1",
+    "r8 = call add(r6, r7)",
+    "r9 = move r8",
+    "r10 = const.int 6",
+    "r11 = call eq_int(r9, r10)",
+    "branch.if r11 -> L0, L1",
+    "label L0",
+    "r13 = move r8",
+    "r12 = move r13",
+    "jump L2",
+    "label L1",
+    "r14 = const.int 0",
+    "r12 = move r14",
+    "label L2"
+  ]
+}

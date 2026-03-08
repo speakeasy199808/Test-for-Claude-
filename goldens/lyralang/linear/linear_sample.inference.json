@@ -1,0 +1,21 @@
+{
+  "fixture": "fixtures/lyralang/linear/linear_sample.lyra",
+  "bindings": [
+    {
+      "name": "file",
+      "resource": "File"
+    },
+    {
+      "name": "forwarded",
+      "resource": "File"
+    },
+    {
+      "name": "socket",
+      "resource": "Socket"
+    },
+    {
+      "name": "cap",
+      "resource": "Capability"
+    }
+  ]
+}

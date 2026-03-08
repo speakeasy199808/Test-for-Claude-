@@ -1,0 +1,7 @@
+{
+  "fixture": "fixtures/lyralang/test_framework/framework_sample.lyra",
+  "normalized_source": "module framework\nlet value = add(1, 2)\nvalue\n",
+  "significant_token_count": 12,
+  "first_token": "module",
+  "last_token": "value"
+}

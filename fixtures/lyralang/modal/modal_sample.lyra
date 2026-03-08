@@ -1,0 +1,9 @@
+module modal_demo
+let baseline = 1
+let unknown_value = assume_unknown(baseline)
+let hypothesis_value = promote_unknown_to_hypothesis(unknown_value, observation_evidence())
+let fact_value = promote_hypothesis_to_fact(hypothesis_value, proof_evidence())
+let necessary_value = promote_fact_to_necessary(fact_value, necessity_evidence())
+let possible_value = promote_unknown_to_possible(assume_unknown(2), possibility_evidence())
+let witnessed_fact = promote_possible_to_fact(possible_value, proof_evidence())
+reveal_fact(witnessed_fact)

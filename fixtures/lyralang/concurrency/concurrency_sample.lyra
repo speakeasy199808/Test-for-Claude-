@@ -1,0 +1,9 @@
+module concurrency_demo
+let task_a = spawn(add(1, 2))
+let task_b = spawn(read_clock())
+let chan = channel_int()
+send_int(chan, 7)
+let selected = select(task_a, task_b)
+let first = join(task_a)
+let received = recv_int(chan)
+add(selected, add(first, received))

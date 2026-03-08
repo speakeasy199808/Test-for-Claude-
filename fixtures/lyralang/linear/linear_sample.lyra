@@ -1,0 +1,11 @@
+module linear_sample
+
+let file = open_file()
+let forwarded = id(file)
+close_file(forwarded)
+
+let socket = open_socket()
+close_socket(socket)
+
+let cap = grant_capability(7)
+consume_capability(cap)

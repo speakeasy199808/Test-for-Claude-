@@ -1,0 +1,35 @@
+[task]
+id = "P1-011"
+slug = "concurrency_primitives"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Structured concurrency: spawn, join, select. Channel types. Deterministic scheduling specification. No data races by construction."
+
+[task.dependencies]
+hard = ["P1-003", "P1-004", "P1-005", "P1-017"]
+soft = []
+enables = ["P1-014", "P1-032"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/CONCURRENCY.md",
+  "interfaces/specs/lyralang_concurrency_model_v1.json",
+  "lyralang/src/concurrency/mod.rs",
+  "lyralang/src/concurrency/error.rs",
+  "lyralang/src/concurrency/checker.rs",
+  "lyralang/tests/seed_concurrency_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-011_concurrency_primitives/README.md",
+  "lyra/tasks/P01/P1-011_concurrency_primitives/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-011_concurrency_primitives/DESIGN.md",
+  "lyra/tasks/P01/P1-011_concurrency_primitives/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-011_concurrency_primitives/task.toml",
+  "lyra/tasks/P01/P1-011_concurrency_primitives/artifacts/concurrency-traceability.md",
+]

@@ -1,0 +1,33 @@
+[task]
+id = "P1-004"
+slug = "effect_system"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Explicit effects in types. Fn(Input) -> Output with Effect. Linear effects. Effect inference rules."
+
+[task.dependencies]
+hard = ["P1-003", "P1-017"]
+soft = ["P1-005", "P1-018"]
+enables = ["P1-005", "P1-010", "P1-011", "P1-018", "P1-019", "P1-020"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/EFFECTS.md",
+  "lyralang/src/types/effect.rs",
+  "lyralang/src/builtins.rs",
+  "lyralang/src/checker/infer.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-004_effect_system/README.md",
+  "lyra/tasks/P01/P1-004_effect_system/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-004_effect_system/DESIGN.md",
+  "lyra/tasks/P01/P1-004_effect_system/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-004_effect_system/task.toml",
+  "lyra/tasks/P01/P1-004_effect_system/artifacts/effect-system-traceability.md",
+]

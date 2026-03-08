@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/temporal/temporal_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "type_error",
+      "message": "call argument type must match parameter type: expected Bool but found Int",
+      "line": 2,
+      "column": 1
+    }
+  ]
+}

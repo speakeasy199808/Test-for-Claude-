@@ -1,0 +1,5 @@
+module std_io_print_status
+
+let ok = eq(1, 1)
+print(ok)
+0

@@ -1,0 +1,39 @@
+task_id = "P0-004"
+slug = "repo_architecture"
+phase = "P00"
+title = "Repo Architecture"
+primary_archetype = "Core Module Implementation"
+work_package_class = "multi-module"
+primary_ownership_root = "k0/"
+secondary_touched_roots = ["lyralang/", "k1/", "shells/", "slices/", "interfaces/", "lyra/tasks/"]
+expected_deliverable_shape = "workspace-plus-stubs"
+dependency_posture = "parallel-capable-after-P0-003"
+
+[dependencies]
+hard = ["P0-003"]
+soft = []
+
+[completion_gate]
+requires_correct_ownership = true
+requires_acceptance_pass = true
+requires_evidence_emitted = true
+requires_control_plane_updated = true
+
+[evidence]
+artifacts = [
+  "artifacts/workspace-manifest.md",
+  "artifacts/touched-roots.md",
+]
+production_files = [
+  "Cargo.toml",
+  "k0/Cargo.toml",
+  "k0/src/lib.rs",
+  "lyralang/Cargo.toml",
+  "lyralang/src/lib.rs",
+  "k1/Cargo.toml",
+  "k1/src/lib.rs",
+  "shells/Cargo.toml",
+  "shells/src/lib.rs",
+  "slices/Cargo.toml",
+  "slices/src/lib.rs",
+]

@@ -1,0 +1,16 @@
+task_id = "P0-003"
+slug = "constitutional_math"
+phase = "P00"
+title = "Constitutional Math"
+primary_archetype = "Formal Specification"
+work_package_class = "single-module"
+primary_ownership_root = "k0/"
+secondary_touched_roots = ["docs/", "interfaces/", "fixtures/", "lyra/tasks/"]
+expected_deliverable_shape = "spec-plus-fixtures"
+dependency_posture = "spec-first"
+
+[completion_gate]
+requires_correct_ownership = true
+requires_acceptance_pass = true
+requires_evidence_emitted = true
+requires_control_plane_updated = true

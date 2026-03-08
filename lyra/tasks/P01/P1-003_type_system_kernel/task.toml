@@ -1,0 +1,33 @@
+[task]
+id = "P1-003"
+slug = "type_system_kernel"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Primitive types: Unit, Bool, Int, Nat, Rational. Product, sum, and function types. Hindley-Milner base."
+
+[task.dependencies]
+hard = ["P1-001", "P1-002"]
+soft = ["P1-016"]
+enables = ["P1-004", "P1-009", "P1-013", "P1-017"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/TYPES.md",
+  "lyralang/src/types/mod.rs",
+  "lyralang/src/types/effect.rs",
+  "lyralang/src/types/ty.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-003_type_system_kernel/README.md",
+  "lyra/tasks/P01/P1-003_type_system_kernel/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-003_type_system_kernel/DESIGN.md",
+  "lyra/tasks/P01/P1-003_type_system_kernel/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-003_type_system_kernel/task.toml",
+  "lyra/tasks/P01/P1-003_type_system_kernel/artifacts/type-system-traceability.md",
+]

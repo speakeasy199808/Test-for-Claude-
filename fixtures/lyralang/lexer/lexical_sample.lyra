@@ -1,0 +1,9 @@
+module Δemo
+
+// lexical sample
+let café = 42
+let _shadow = value_2
+/* outer /* inner */ comment */
+match café {
+    _ => "ok"
+}

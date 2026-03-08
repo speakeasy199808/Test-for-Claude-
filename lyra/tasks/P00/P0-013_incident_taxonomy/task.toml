@@ -1,0 +1,35 @@
+[task]
+id = "P0-013"
+slug = "incident_taxonomy"
+phase = 0
+status = "complete"
+archetype = "formal-specification"
+work_package_class = "type-system"
+
+[ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/", "fixtures/"]
+
+[deliverables]
+code = [
+  "k0/src/incident/mod.rs",
+  "k0/src/incident/taxonomy.rs",
+  "k0/src/incident/record.rs",
+]
+control_plane = [
+  "lyra/tasks/P00/P0-013_incident_taxonomy/README.md",
+  "lyra/tasks/P00/P0-013_incident_taxonomy/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-013_incident_taxonomy/DESIGN.md",
+  "lyra/tasks/P00/P0-013_incident_taxonomy/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-013_incident_taxonomy/task.toml",
+  "lyra/tasks/P00/P0-013_incident_taxonomy/fixtures/incident/taxonomy.json",
+  "lyra/tasks/P00/P0-013_incident_taxonomy/artifacts/incident-traceability.md",
+]
+
+[dependencies]
+hard = ["P0-003", "P0-009"]
+soft = ["P0-012"]
+
+[evidence]
+test_count = 39
+test_result = "230 passed; 0 failed"

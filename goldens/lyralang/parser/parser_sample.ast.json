@@ -1,0 +1,35 @@
+{
+  "fixture": "fixtures/lyralang/parser/parser_sample.lyra",
+  "module": "calc",
+  "top_level_statements": [
+    {
+      "kind": "let",
+      "pattern": "threshold",
+      "value_kind": "integer"
+    }
+  ],
+  "tail_expression": {
+    "kind": "block",
+    "statements": [
+      {
+        "kind": "let",
+        "pattern": "input",
+        "value_kind": "binary"
+      }
+    ],
+    "tail_expression": {
+      "kind": "match",
+      "scrutinee_kind": "identifier",
+      "arms": [
+        {
+          "pattern": "integer",
+          "body_kind": "string"
+        },
+        {
+          "pattern": "wildcard",
+          "body_kind": "block"
+        }
+      ]
+    }
+  }
+}

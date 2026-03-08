@@ -1,0 +1,42 @@
+[task]
+id = "P0-007"
+slug = "canonical_encoder"
+phase = "P00"
+status = "complete"
+archetype = "core-module-implementation"
+work_package_class = "multi-module"
+primary_ownership_root = "k0/"
+underbuild_risk = "moderate"
+
+[task.mission]
+summary = "Rust implementation of LyraCodec. Fixed-point rationals only. Deterministic byte output for identical inputs."
+
+[task.dependencies]
+hard = ["P0-006"]
+soft = []
+enables = ["P0-008", "P0-011", "P0-023"]
+
+[task.deliverables]
+production_code = [
+  "k0/src/codec/mod.rs",
+  "k0/src/codec/types.rs",
+  "k0/src/codec/varint.rs",
+  "k0/src/codec/encoder.rs",
+  "k0/src/codec/decoder.rs",
+  "k0/src/codec/error.rs",
+]
+control_plane = [
+  "lyra/tasks/P00/P0-007_canonical_encoder/README.md",
+  "lyra/tasks/P00/P0-007_canonical_encoder/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-007_canonical_encoder/DESIGN.md",
+  "lyra/tasks/P00/P0-007_canonical_encoder/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-007_canonical_encoder/task.toml",
+  "lyra/tasks/P00/P0-007_canonical_encoder/artifacts/encoder-traceability.md",
+  "lyra/tasks/P00/P0-007_canonical_encoder/fixtures/codec/golden_vectors.json",
+]
+
+[task.evidence]
+test_command = "cargo test -p k0"
+test_count = 64
+codec_tests = 42
+genesis_tests = 22

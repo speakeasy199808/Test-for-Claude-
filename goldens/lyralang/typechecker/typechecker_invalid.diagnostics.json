@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/typechecker/typechecker_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "type_mismatch",
+      "message": "if condition must have type Bool: expected Bool but found Int",
+      "line": 2,
+      "column": 4
+    }
+  ]
+}

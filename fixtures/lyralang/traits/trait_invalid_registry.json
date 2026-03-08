@@ -1,0 +1,30 @@
+{
+  "version": "lyralang-traits-v1-fixture",
+  "traits": [
+    {
+      "name": "Eq",
+      "owner_root": "lyralang/",
+      "methods": [
+        {
+          "method_name": "eq",
+          "parameters": ["T", "T"],
+          "result": "Bool",
+          "latent_effects": []
+        }
+      ],
+      "default_implementation": "canonical rendered equality",
+      "derive_macro": "derive(Eq)"
+    }
+  ],
+  "instances": [
+    {
+      "trait_name": "Eq",
+      "for_type": "Int",
+      "owner_root": "third_party/",
+      "method_target": "eq_int",
+      "implementation_style": "ExplicitBuiltin",
+      "derived_via": null
+    }
+  ],
+  "derive_expansions": []
+}

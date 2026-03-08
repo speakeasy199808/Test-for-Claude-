@@ -1,0 +1,26 @@
+{
+  "version": "lyralang-stdlib-v1",
+  "description": "Canonical seed stdlib manifest for Stage 0 LyraLang.",
+  "modules": [
+    {
+      "name": "std.data.bool_guard",
+      "category": "data",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_data_bool_guard.lyra"
+    },
+    {
+      "name": "std.io.print_status",
+      "category": "io",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_io_print_status.lyra"
+    },
+    {
+      "name": "std.math.int_eq",
+      "category": "math",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_math_int_eq.lyra"
+    },
+    {
+      "name": "std.math.rational_seed",
+      "category": "math",
+      "source_path": "fixtures/lyralang/stdlib/modules/std_math_rational_seed.lyra"
+    }
+  ]
+}

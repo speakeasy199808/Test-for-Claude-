@@ -1,0 +1,35 @@
+[task]
+id = "P1-009"
+slug = "trait_system"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Typeclass/trait mechanism for ad-hoc polymorphism with coherence, orphan prevention, default implementations, and deterministic derive expansion."
+
+[task.dependencies]
+hard = ["P1-003", "P1-017"]
+soft = []
+enables = ["P1-021", "P1-026", "P1-028"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/TRAITS.md",
+  "interfaces/specs/lyralang_trait_registry_v1.json",
+  "lyralang/src/traits/mod.rs",
+  "lyralang/src/traits/error.rs",
+  "lyralang/src/traits/registry.rs",
+  "lyralang/tests/trait_system_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-009_trait_system/README.md",
+  "lyra/tasks/P01/P1-009_trait_system/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-009_trait_system/DESIGN.md",
+  "lyra/tasks/P01/P1-009_trait_system/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-009_trait_system/task.toml",
+  "lyra/tasks/P01/P1-009_trait_system/artifacts/trait-traceability.md",
+]

@@ -1,0 +1,7 @@
+module std_data_bool_guard
+
+let flag = eq(1, 1)
+match flag {
+  true => 1
+  false => 0
+}

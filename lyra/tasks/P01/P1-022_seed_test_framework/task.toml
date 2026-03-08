@@ -1,0 +1,33 @@
+[task]
+id = "P1-022"
+slug = "seed_test_framework"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Unit tests, property-based tests, golden file comparisons. All under cargo test."
+
+[task.dependencies]
+hard = ["P1-015", "P1-016", "P1-017"]
+soft = ["P1-021"]
+enables = ["P1-023", "P1-024", "P1-031"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/TESTING.md",
+  "interfaces/specs/lyralang_test_framework_v1.json",
+  "lyralang/src/testing/mod.rs",
+  "lyralang/tests/seed_test_framework_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-022_seed_test_framework/README.md",
+  "lyra/tasks/P01/P1-022_seed_test_framework/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-022_seed_test_framework/DESIGN.md",
+  "lyra/tasks/P01/P1-022_seed_test_framework/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-022_seed_test_framework/task.toml",
+  "lyra/tasks/P01/P1-022_seed_test_framework/artifacts/test-framework-traceability.md",
+]

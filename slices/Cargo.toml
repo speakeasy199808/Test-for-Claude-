@@ -1,0 +1,17 @@
+[package]
+name = "slices"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Lyra vertical compositions and end-to-end feature slices spanning subsystem roots"
+
+[dependencies]
+k0 = { path = "../k0" }
+k1 = { path = "../k1" }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

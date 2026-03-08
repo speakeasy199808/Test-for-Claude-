@@ -1,0 +1,4 @@
+module broken
+
+let x = "text"
+x

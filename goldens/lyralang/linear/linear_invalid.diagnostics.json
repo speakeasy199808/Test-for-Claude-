@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/linear/linear_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "duplicate_use",
+      "message": "linear resource `File` bound to `file` was already moved or consumed",
+      "line": 4,
+      "column": 12
+    }
+  ]
+}

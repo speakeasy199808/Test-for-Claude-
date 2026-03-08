@@ -1,0 +1,8 @@
+module effects
+print_int(1)
+{
+  let tick = read_clock()
+  let nonce = entropy_u64()
+  touch_state(nonce)
+  if prove_eq_int(tick, tick) tick else nonce
+}

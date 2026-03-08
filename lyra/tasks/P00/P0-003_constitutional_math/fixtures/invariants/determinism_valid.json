@@ -1,0 +1,19 @@
+{
+  "id": "INV-DETERMINISM-001",
+  "kind": "determinism",
+  "description": "Identical canonical state and events produce identical outputs",
+  "input_a": {
+    "state_digest": "sha3-256:1111111111111111111111111111111111111111111111111111111111111111",
+    "events": ["evt:init", "evt:apply:x=1", "evt:commit"]
+  },
+  "input_b": {
+    "state_digest": "sha3-256:1111111111111111111111111111111111111111111111111111111111111111",
+    "events": ["evt:init", "evt:apply:x=1", "evt:commit"]
+  },
+  "expected": {
+    "transition_digest_equal": true,
+    "final_state_digest_equal": true,
+    "receipt_digest_equal": true,
+    "output_digest_equal": true
+  }
+}

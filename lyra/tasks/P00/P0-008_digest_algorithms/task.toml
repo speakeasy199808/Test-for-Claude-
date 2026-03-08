@@ -1,0 +1,39 @@
+[task]
+id = "P0-008"
+slug = "digest_algorithms"
+phase = "P00"
+status = "complete"
+archetype = "core-module-implementation"
+work_package_class = "multi-module"
+primary_ownership_root = "k0/"
+underbuild_risk = "low"
+
+[task.mission]
+summary = "SHA-3-256 primary, BLAKE3 secondary. All hashes used system-wide route through k0::digest."
+
+[task.dependencies]
+hard = []
+soft = ["P0-001"]
+enables = ["P0-009", "P0-011", "P0-023"]
+
+[task.deliverables]
+production_code = [
+  "k0/src/digest/mod.rs",
+  "k0/src/digest/sha3.rs",
+  "k0/src/digest/blake3.rs",
+]
+control_plane = [
+  "lyra/tasks/P00/P0-008_digest_algorithms/README.md",
+  "lyra/tasks/P00/P0-008_digest_algorithms/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-008_digest_algorithms/DESIGN.md",
+  "lyra/tasks/P00/P0-008_digest_algorithms/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-008_digest_algorithms/task.toml",
+  "lyra/tasks/P00/P0-008_digest_algorithms/artifacts/digest-traceability.md",
+  "lyra/tasks/P00/P0-008_digest_algorithms/fixtures/digest/golden_vectors.json",
+]
+
+[task.evidence]
+test_command = "cargo test -p k0"
+total_tests = 86
+digest_unit_tests = 21
+digest_doc_tests = 1

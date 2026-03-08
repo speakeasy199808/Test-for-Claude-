@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/bytecode/bytecode_invalid.lyra",
+  "expected_errors": [
+    {
+      "kind": "codegen_error",
+      "message": "string literal typing is deferred in Stage 0",
+      "line": 3,
+      "column": 9
+    }
+  ]
+}

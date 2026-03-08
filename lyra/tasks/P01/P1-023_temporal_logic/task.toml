@@ -1,0 +1,35 @@
+[task]
+id = "P1-023"
+slug = "temporal_logic"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "always, eventually, until, since operators. Linear temporal logic built into the language."
+
+[task.dependencies]
+hard = ["P1-003", "P1-017"]
+soft = ["P1-008"]
+enables = ["P1-025", "P1-028"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/TEMPORAL.md",
+  "interfaces/specs/lyralang_temporal_logic_v1.json",
+  "lyralang/src/temporal/mod.rs",
+  "lyralang/src/temporal/error.rs",
+  "lyralang/src/temporal/checker.rs",
+  "lyralang/tests/seed_temporal_logic_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-023_temporal_logic/README.md",
+  "lyra/tasks/P01/P1-023_temporal_logic/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-023_temporal_logic/DESIGN.md",
+  "lyra/tasks/P01/P1-023_temporal_logic/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-023_temporal_logic/task.toml",
+  "lyra/tasks/P01/P1-023_temporal_logic/artifacts/temporal-traceability.md",
+]

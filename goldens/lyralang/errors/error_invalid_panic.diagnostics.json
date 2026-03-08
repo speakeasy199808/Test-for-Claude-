@@ -1,0 +1,11 @@
+{
+  "fixture": "fixtures/lyralang/errors/error_invalid_panic.lyra",
+  "expected_errors": [
+    {
+      "kind": "panic_forbidden",
+      "message": "panic-free Stage 0 forbids `panic`; use Option/Result propagation instead",
+      "line": 2,
+      "column": 1
+    }
+  ]
+}

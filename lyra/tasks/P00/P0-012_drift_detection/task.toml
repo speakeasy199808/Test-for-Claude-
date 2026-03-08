@@ -1,0 +1,31 @@
+[task]
+id = "P0-012"
+slug = "drift_detection"
+phase = 0
+status = "complete"
+archetype = "verification"
+work_package_class = "runtime-monitoring"
+
+[ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/", "fixtures/"]
+
+[deliverables]
+code = ["k0/src/drift/mod.rs", "k0/src/drift/detector.rs", "k0/src/drift/error.rs"]
+control_plane = [
+  "lyra/tasks/P00/P0-012_drift_detection/README.md",
+  "lyra/tasks/P00/P0-012_drift_detection/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-012_drift_detection/DESIGN.md",
+  "lyra/tasks/P00/P0-012_drift_detection/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-012_drift_detection/task.toml",
+  "lyra/tasks/P00/P0-012_drift_detection/fixtures/drift/scenarios.json",
+  "lyra/tasks/P00/P0-012_drift_detection/artifacts/drift-traceability.md",
+]
+
+[dependencies]
+hard = ["P0-003", "P0-009", "P0-011"]
+soft = ["P0-007", "P0-008"]
+
+[evidence]
+test_count = 28
+test_result = "191 passed; 0 failed"

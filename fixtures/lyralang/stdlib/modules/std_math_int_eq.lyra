@@ -1,0 +1,4 @@
+module std_math_int_eq
+
+let lhs = add(2, 3)
+eq(lhs, 5)

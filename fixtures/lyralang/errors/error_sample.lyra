@@ -1,0 +1,4 @@
+module errors
+let base = fallible_add(4, 5)?
+let quotient = fallible_divide(base, 3)?
+base + quotient

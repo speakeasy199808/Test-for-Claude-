@@ -1,0 +1,37 @@
+[task]
+id = "P0-009"
+slug = "virtual_time"
+phase = "P00"
+status = "complete"
+archetype = "core-module-implementation"
+work_package_class = "multi-module"
+primary_ownership_root = "k0/"
+underbuild_risk = "low"
+
+[task.mission]
+summary = "Monotonic counter, no wall clock. Advances on events only. Causal ordering enforced. No ambient time inputs permitted."
+
+[task.dependencies]
+hard = []
+soft = ["P0-008"]
+enables = ["P0-010", "P0-011", "P0-012", "P0-023"]
+
+[task.deliverables]
+production_code = [
+  "k0/src/time/mod.rs",
+  "k0/src/time/clock.rs",
+]
+control_plane = [
+  "lyra/tasks/P00/P0-009_virtual_time/README.md",
+  "lyra/tasks/P00/P0-009_virtual_time/ACCEPTANCE.md",
+  "lyra/tasks/P00/P0-009_virtual_time/DESIGN.md",
+  "lyra/tasks/P00/P0-009_virtual_time/IMPLEMENTATION.md",
+  "lyra/tasks/P00/P0-009_virtual_time/task.toml",
+  "lyra/tasks/P00/P0-009_virtual_time/artifacts/time-traceability.md",
+  "lyra/tasks/P00/P0-009_virtual_time/fixtures/time/scenarios.json",
+]
+
+[task.evidence]
+test_command = "cargo test -p k0 --lib"
+total_tests = 113
+time_tests = 28

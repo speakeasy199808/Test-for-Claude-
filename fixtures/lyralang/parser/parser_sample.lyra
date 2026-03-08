@@ -1,0 +1,17 @@
+module calc
+
+let threshold = 10
+
+{
+    let input = 1 + 2 * 3
+    match input {
+        0 => "zero",
+        _ => {
+            if input > threshold {
+                "large"
+            } else {
+                "small"
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+[task]
+id = "P1-017"
+slug = "seed_type_checker"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Hindley-Milner with effect extensions. Constraint solving. Clear error messages with line and column."
+
+[task.dependencies]
+hard = ["P1-002", "P1-003", "P1-016"]
+soft = ["P1-004"]
+enables = ["P1-018", "P1-019", "P1-020", "P1-022", "P1-031", "P1-032"]
+
+[task.deliverables]
+production_code = [
+  "lyralang/src/checker/mod.rs",
+  "lyralang/src/checker/error.rs",
+  "lyralang/src/checker/infer.rs",
+  "lyralang/tests/seed_type_checker_integration.rs",
+  "fixtures/lyralang/typechecker/typechecker_sample.lyra",
+  "fixtures/lyralang/typechecker/typechecker_invalid.lyra",
+  "goldens/lyralang/typechecker/typechecker_sample.inference.json",
+  "goldens/lyralang/typechecker/typechecker_invalid.diagnostics.json",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-017_seed_type_checker/README.md",
+  "lyra/tasks/P01/P1-017_seed_type_checker/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-017_seed_type_checker/DESIGN.md",
+  "lyra/tasks/P01/P1-017_seed_type_checker/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-017_seed_type_checker/task.toml",
+  "lyra/tasks/P01/P1-017_seed_type_checker/artifacts/seed-type-checker-traceability.md",
+]

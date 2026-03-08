@@ -1,0 +1,36 @@
+[task]
+id = "P1-005"
+slug = "linear_types"
+phase = "P01"
+status = "complete"
+archetype = "compiler-language-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Resource types: File, Socket, Capability. Must be used exactly once. Compile-time enforcement — no runtime cost."
+
+[task.dependencies]
+hard = ["P1-003", "P1-004", "P1-017", "P1-018"]
+soft = ["P1-013"]
+enables = ["P1-006", "P1-010", "P1-013", "P1-014", "P1-019", "P1-020"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/LINEARITY.md",
+  "lyralang/src/types/ty.rs",
+  "lyralang/src/builtins.rs",
+  "lyralang/src/linear/mod.rs",
+  "lyralang/src/linear/error.rs",
+  "lyralang/src/linear/checker.rs",
+  "lyralang/tests/seed_linear_checker_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-005_linear_types/README.md",
+  "lyra/tasks/P01/P1-005_linear_types/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-005_linear_types/DESIGN.md",
+  "lyra/tasks/P01/P1-005_linear_types/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-005_linear_types/task.toml",
+  "lyra/tasks/P01/P1-005_linear_types/artifacts/linear-types-traceability.md",
+]

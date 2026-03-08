@@ -1,0 +1,22 @@
+{
+  "schema_version": "lyralang-error-model-v1",
+  "types": {
+    "option": "Option[T]",
+    "result": "Result[T, Error[..]]",
+    "error": "Error[label]",
+    "stack_trace": "StackTrace"
+  },
+  "propagation": {
+    "operator": "?",
+    "scope_local": true,
+    "mixed_option_result_in_same_scope": false
+  },
+  "composition": {
+    "ordering": "sorted",
+    "deduplicated": true,
+    "trace_suffix": "@trace"
+  },
+  "panic_free_subset": {
+    "forbidden_calls": ["panic", "unwrap", "unwrap_result", "unwrap_option", "expect"]
+  }
+}

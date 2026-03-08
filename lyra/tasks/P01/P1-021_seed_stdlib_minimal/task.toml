@@ -1,0 +1,35 @@
+[task]
+id = "P1-021"
+slug = "seed_stdlib_minimal"
+phase = "P01"
+status = "complete"
+archetype = "compiler-pipeline"
+work_package_class = "compiler-pipeline"
+primary_ownership_root = "lyralang/"
+underbuild_risk = "high"
+
+[task.mission]
+summary = "Minimal primitive/data/io/math stdlib written in Lyra source files and compiled through the seed compiler."
+
+[task.dependencies]
+hard = ["P1-009", "P1-019", "P1-020"]
+soft = []
+enables = ["P1-022", "P1-032"]
+
+[task.deliverables]
+production_code = [
+  "docs/lyralang/STDLIB.md",
+  "interfaces/specs/lyralang_seed_stdlib_v1.json",
+  "lyralang/src/stdlib/mod.rs",
+  "lyralang/src/stdlib/error.rs",
+  "lyralang/src/stdlib/compiler.rs",
+  "lyralang/tests/seed_stdlib_minimal_integration.rs",
+]
+control_plane = [
+  "lyra/tasks/P01/P1-021_seed_stdlib_minimal/README.md",
+  "lyra/tasks/P01/P1-021_seed_stdlib_minimal/ACCEPTANCE.md",
+  "lyra/tasks/P01/P1-021_seed_stdlib_minimal/DESIGN.md",
+  "lyra/tasks/P01/P1-021_seed_stdlib_minimal/IMPLEMENTATION.md",
+  "lyra/tasks/P01/P1-021_seed_stdlib_minimal/task.toml",
+  "lyra/tasks/P01/P1-021_seed_stdlib_minimal/artifacts/stdlib-traceability.md",
+]

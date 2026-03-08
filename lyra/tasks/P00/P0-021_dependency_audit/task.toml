@@ -1,0 +1,30 @@
+[task]
+id = "P0-021"
+slug = "dependency_audit"
+title = "Dependency Audit"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Verification / Proof"
+work_class = "audit-and-policy"
+
+[task.ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/", "./"]
+
+[task.dependencies]
+hard = ["P0-004"]
+soft = ["P0-015"]
+integration = ["P0-015"]
+
+[task.evidence]
+artifacts = [
+    "deny.toml",
+    "DEPS.md",
+    "lyra/tasks/P00/P0-021_dependency_audit/artifacts/dependency-audit-spec.md",
+]
+
+[task.acceptance]
+criteria_count = 10
+all_passed = true

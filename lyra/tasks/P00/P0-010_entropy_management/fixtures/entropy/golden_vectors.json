@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "description": "Golden vectors for EntropyPool hash-chain (P0-010). All values derived from SHA3-256 chain.",
+  "hash_chain_protocol": "state_n+1 = SHA3-256(state_n || LE64(counter_n))",
+  "cases": [
+    {
+      "name": "zero_seed_first_block_hex",
+      "description": "SHA3-256([0u8;32] || LE64(0)) — first hash-chain output from zero seed",
+      "seed_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "counter": 0,
+      "output_hex": "SHA3-256(seed || counter=0) — computed at runtime by golden_first_u64_from_zero_seed test"
+    },
+    {
+      "name": "zero_seed_first_u64_le",
+      "description": "First 8 bytes of SHA3-256([0u8;32] || LE64(0)) interpreted as LE u64",
+      "seed_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "counter": 0,
+      "note": "Verified by golden_first_u64_from_zero_seed test in pool.rs"
+    },
+    {
+      "name": "different_seeds_differ",
+      "description": "Seed [0u8;32] and seed [1,0,...,0] produce different first outputs",
+      "seed_a_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "seed_b_hex": "0100000000000000000000000000000000000000000000000000000000000000",
+      "expected": "outputs differ"
+    },
+    {
+      "name": "sequential_draws_differ",
+      "description": "Draw 0 and draw 1 from zero seed produce different 32-byte blocks",
+      "seed_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected": "block_0 != block_1"
+    },
+    {
+      "name": "fork_determinism",
+      "description": "Two pools with same seed, both forked at counter=0, produce identical child output",
+      "seed_hex": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected": "child_a.next_bytes(32) == child_b.next_bytes(32)"
+    },
+    {
+      "name": "from_seed_bytes_lyra_test",
+      "description": "EntropyPool::from_seed_bytes(b'lyra-test-seed') — stable across runs",
+      "seed_material_utf8": "lyra-test-seed",
+      "note": "Seed is SHA3-256(b'lyra-test-seed'); output verified by from_seed_bytes_deterministic test"
+    }
+  ]
+}

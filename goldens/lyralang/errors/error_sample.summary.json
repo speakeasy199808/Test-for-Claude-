@@ -1,0 +1,29 @@
+{
+  "fixture": "fixtures/lyralang/errors/error_sample.lyra",
+  "program_type": "Result[Int, Error[DivideByZero | IoFailure @trace]]",
+  "propagation_mode": "result",
+  "propagated_error_type": "Error[DivideByZero | IoFailure @trace]",
+  "panic_free": true,
+  "bindings": [
+    {
+      "name": "base",
+      "uses_try": true
+    },
+    {
+      "name": "quotient",
+      "uses_try": true
+    }
+  ],
+  "stack_trace": [
+    {
+      "line": 2,
+      "column": 12,
+      "snippet": "fallible_add(..)"
+    },
+    {
+      "line": 3,
+      "column": 16,
+      "snippet": "fallible_divide(..)"
+    }
+  ]
+}

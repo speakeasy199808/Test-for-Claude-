@@ -1,0 +1,31 @@
+[task]
+id = "P0-016"
+slug = "versioning_strategy"
+title = "Versioning Strategy"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Infrastructure / Release"
+work_class = "infra-and-release"
+
+[task.ownership]
+primary_root = "ops/"
+secondary_roots = ["lyra/tasks/"]
+
+[task.dependencies]
+hard = []
+soft = ["P0-004", "P0-015"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    "VERSIONING.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "lyra/tasks/P00/P0-016_versioning_strategy/artifacts/versioning-policy-summary.md",
+]
+
+[task.acceptance]
+criteria_count = 9
+all_passed = true

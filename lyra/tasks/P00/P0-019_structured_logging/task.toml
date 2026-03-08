@@ -1,0 +1,30 @@
+[task]
+id = "P0-019"
+slug = "structured_logging"
+title = "Structured Logging"
+phase = "P0"
+status = "complete"
+
+[task.archetype]
+primary = "Core Module Implementation"
+work_class = "multi-module"
+
+[task.ownership]
+primary_root = "k0/"
+secondary_roots = ["lyra/tasks/"]
+
+[task.dependencies]
+hard = ["P0-009"]
+soft = ["P0-018"]
+integration = []
+
+[task.evidence]
+artifacts = [
+    "k0/src/logging/mod.rs",
+    "k0/src/logging/entry.rs",
+    "k0/src/logging/sink.rs",
+]
+
+[task.acceptance]
+criteria_count = 10
+all_passed = true
