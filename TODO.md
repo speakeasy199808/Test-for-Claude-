@@ -37,9 +37,9 @@
 - [x] P1-009 Trait System
 - [x] P1-010 Error Handling
 - [x] P1-011 Concurrency Primitives
-- [ ] P1-012 Pattern Matching Exhaustiveness
-- [ ] P1-013 Lifetime Annotations
-- [ ] P1-014 FFI Specification
+- [x] P1-012 Pattern Matching Exhaustiveness
+- [x] P1-013 Lifetime Annotations
+- [x] P1-014 FFI Specification
 - [x] P1-015 Seed Lexer
 - [x] P1-016 Seed Parser
 - [x] P1-017 Seed Type Checker
@@ -49,12 +49,12 @@
 - [x] P1-021 Seed Stdlib Minimal
 - [x] P1-022 Seed Test Framework
 - [x] P1-023 Temporal Logic
-- [ ] P1-024 Probabilistic Symbolic
-- [ ] P1-025 Proof Construction
-- [ ] P1-026 Syntax Extension
-- [ ] P1-027 Metaprogramming
-- [ ] P1-028 Type-Level Computation
-- [ ] P1-029 REPL Implementation
-- [ ] P1-030 LSP Server
-- [ ] P1-031 Source Map Generation
-- [ ] P1-032 Language Integration
+- [x] P1-024 Probabilistic Symbolic
+- [x] P1-025 Proof Construction
+- [x] P1-026 Syntax Extension
+- [x] P1-027 Metaprogramming
+- [x] P1-028 Type-Level Computation
+- [x] P1-029 REPL Implementation
+- [x] P1-030 LSP Server
+- [x] P1-031 Source Map Generation
+- [x] P1-032 Language Integration

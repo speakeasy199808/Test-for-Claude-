@@ -5,6 +5,33 @@ All notable changes to the Lyra project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.0.14
+
+- complete P1-012 Pattern Matching Exhaustiveness with static exhaustiveness checking, wildcard/guard/nested destructuring support
+- add `docs/lyralang/PATTERNS.md`, `interfaces/specs/lyralang_pattern_matching_v1.json`, and `lyralang/patterns`
+- complete P1-013 Lifetime Annotations with borrow-checking semantics, lifetime elision, region inference
+- add `docs/lyralang/LIFETIMES.md`, `interfaces/specs/lyralang_lifetime_annotations_v1.json`, and `lyralang/lifetimes`
+- complete P1-014 FFI Specification with Rust/C safety boundaries, capability gating, marshalling rules
+- add `docs/lyralang/FFI.md`, `interfaces/specs/lyralang_ffi_spec_v1.json`, and `lyralang/ffi`
+- complete P1-024 Probabilistic Symbolic with Distribution types, symbolic PDFs, Bayesian update (no sampling)
+- add `docs/lyralang/PROBABILISTIC.md`, `interfaces/specs/lyralang_probabilistic_symbolic_v1.json`, and `lyralang/probabilistic`
+- complete P1-025 Proof Construction with proof blocks, obligation tracking, verifiable artifact extraction
+- add `docs/lyralang/PROOF.md`, `interfaces/specs/lyralang_proof_construction_v1.json`, and `lyralang/proof`
+- complete P1-026 Syntax Extension with hygienic `syntax!` macros and gensym-based binding isolation
+- add `docs/lyralang/MACROS.md`, `interfaces/specs/lyralang_syntax_extension_v1.json`, and `lyralang/macros`
+- complete P1-027 Metaprogramming with compile-time code execution, AST manipulation, quasiquotation
+- add `docs/lyralang/METAPROGRAMMING.md`, `interfaces/specs/lyralang_metaprogramming_v1.json`, and `lyralang/meta`
+- complete P1-028 Type-Level Computation with const generics, type families, termination checking
+- add `docs/lyralang/TYPELEVEL.md`, `interfaces/specs/lyralang_type_level_computation_v1.json`, and `lyralang/typelevel`
+- complete P1-029 REPL Implementation with session state, type queries, tab completion
+- add `docs/lyralang/REPL.md`, `interfaces/specs/lyralang_repl_v1.json`, and `lyralang/repl`
+- complete P1-030 LSP Server with hover, completions, go-to-definition, diagnostics, incremental analysis
+- add `docs/lyralang/LSP.md`, `interfaces/specs/lyralang_lsp_v1.json`, and `lyralang/lsp`
+- complete P1-031 Source Map Generation with bidirectional source-to-bytecode mapping, debugger hints
+- add `docs/lyralang/SOURCEMAP.md`, `interfaces/specs/lyralang_sourcemap_v1.json`, and `lyralang/sourcemap`
+- complete P1-032 Language Integration: round-trip parse/print, type soundness, compile hello world/fibonacci/symbolic
+- **Phase 1 complete** — all 32 tasks done
+
 ## [Unreleased]
 
 ### Added
