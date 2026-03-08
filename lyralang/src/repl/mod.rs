@@ -249,7 +249,7 @@ impl Repl {
             let type_str = if type_output.errors.is_empty() {
                 type_output
                     .judgment
-                    .map(|j| format!("{}", j.program_type))
+                    .map(|j| j.program_type.canonical_name())
                     .unwrap_or_else(|| "Unknown".to_owned())
             } else {
                 type_output
@@ -297,12 +297,12 @@ impl Repl {
         let inferred_type = type_output
             .judgment
             .as_ref()
-            .map(|j| format!("{}", j.program_type));
+            .map(|j| j.program_type.canonical_name());
 
         let effect_info = type_output
             .judgment
             .as_ref()
-            .map(|j| format!("{}", j.program_effects));
+            .map(|j| j.program_effects.canonical_name());
 
         // Run semantic evaluation for the value.
         let sem_output = crate::semantics::analyze(trimmed);
@@ -341,7 +341,7 @@ impl Repl {
                         .as_ref()
                         .and_then(|j| {
                             j.bindings.iter().find(|b| b.name == binding.name).map(|b| {
-                                format!("{}", b.scheme.body)
+                                b.scheme.body.canonical_name()
                             })
                         })
                         .unwrap_or_else(|| type_str);

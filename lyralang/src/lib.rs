@@ -20,8 +20,17 @@
 //! - [`stdlib`]    — Minimal standard-library manifest and seed compilation pipeline (P1-021)
 //! - [`testing`]   — Shared fixture/golden helpers for unit, property, and integration tests (P1-022)
 //! - [`temporal`]  — Linear temporal-logic operator analysis and canonical formula summaries (P1-023)
-//! - `repl`        — Interactive read-eval-print loop (P1-029)
-//! - `lsp`         — Language Server Protocol implementation (P1-030)
+//! - [`patterns`]  — Pattern matching exhaustiveness checking (P1-012)
+//! - [`lifetimes`] — Borrow-checking semantics and lifetime annotations (P1-013)
+//! - [`ffi`]       — Foreign function interface specification and safety boundaries (P1-014)
+//! - [`probabilistic`] — Symbolic probability distributions and Bayesian updates (P1-024)
+//! - [`proof`]     — Proof blocks, obligations, and verifiable artifact extraction (P1-025)
+//! - [`macros`]    — Hygienic syntax extension macros (P1-026)
+//! - [`meta`]      — Compile-time code execution and quasiquotation (P1-027)
+//! - [`typelevel`] — Const generics, type families, and termination checking (P1-028)
+//! - [`repl`]      — Interactive read-eval-print loop (P1-029)
+//! - [`lsp`]       — Language Server Protocol implementation (P1-030)
+//! - [`sourcemap`] — Bidirectional source-to-bytecode mapping and debugger hints (P1-031)
 
 #![forbid(unsafe_code)]
 #![deny(missing_docs)]
@@ -34,13 +43,25 @@ pub mod codegen;
 pub mod concurrency;
 pub mod effects;
 pub mod errors;
+pub mod ffi;
 pub mod lexer;
+pub mod lifetimes;
 pub mod linear;
+pub mod lsp;
+pub mod macros;
+pub mod meta;
 pub mod modal;
 pub mod parser;
+pub mod patterns;
+pub mod probabilistic;
+pub mod proof;
+pub mod repl;
 pub mod semantics;
+pub mod sourcemap;
 pub mod stdlib;
+pub mod syntax_ext;
 pub mod temporal;
 pub mod testing;
 pub mod traits;
+pub mod typelevel;
 pub mod types;

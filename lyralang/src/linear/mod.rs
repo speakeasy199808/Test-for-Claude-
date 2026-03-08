@@ -8,7 +8,7 @@ mod checker;
 
 use serde::{Deserialize, Serialize};
 
-use crate::checker;
+use crate::checker as type_checker;
 use crate::checker::error::TypeErrorKind;
 use crate::lexer::SourceSpan;
 use crate::linear::checker::LinearAnalyzer;
@@ -63,7 +63,7 @@ impl LinearChecker {
     /// Parses, type-checks, and linear-checks source text.
     #[must_use]
     pub fn check_source(&self, source: &str) -> LinearCheckOutput {
-        let type_output = checker::check(source);
+        let type_output = type_checker::check(source);
         let normalized_source = type_output.normalized_source.clone();
 
         if !type_output.errors.is_empty() {

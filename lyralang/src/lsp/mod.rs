@@ -421,7 +421,7 @@ impl LspServer {
         let type_str = if type_output.errors.is_empty() {
             type_output
                 .judgment
-                .map(|j| format!("{}", j.program_type))
+                .map(|j| j.program_type.canonical_name())
                 .unwrap_or_else(|| "Unknown".to_owned())
         } else {
             return Some(HoverResult {

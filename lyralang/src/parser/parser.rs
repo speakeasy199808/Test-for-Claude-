@@ -5,7 +5,7 @@ use crate::parser::ast::{
     BinaryOperator, BlockExpression, CallExpression, Expression, ExpressionKind,
     ExpressionStatement, GroupExpression, Identifier, IfExpression, LetStatement, MatchArm,
     MatchExpression, ModuleDecl, Pattern, PatternKind, PrefixExpression, PrefixOperator,
-    Program, SelfReferenceExpression, SelfReferencePrimitive, Statement,
+    Program, SelfReferenceExpression, SelfReferencePrimitive, Statement, TryExpression,
 };
 use crate::parser::error::{ParseError, ParseErrorKind, ParseOutput};
 

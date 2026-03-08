@@ -10,7 +10,7 @@ mod checker;
 
 use serde::{Deserialize, Serialize};
 
-use crate::checker;
+use crate::checker as type_checker;
 use crate::lexer::SourceSpan;
 use crate::modal::checker::ModalAnalyzer;
 use crate::modal::error::{ModalError, ModalErrorKind};
@@ -85,7 +85,7 @@ impl ModalChecker {
     /// Parses and modal-checks source text.
     #[must_use]
     pub fn check_source(&self, source: &str) -> ModalCheckOutput {
-        let type_output = checker::check(source);
+        let type_output = type_checker::check(source);
         let normalized_source = type_output.normalized_source.clone();
 
         if !type_output.errors.is_empty() {

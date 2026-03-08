@@ -10,7 +10,7 @@ mod checker;
 
 use serde::{Deserialize, Serialize};
 
-use crate::checker;
+use crate::checker as type_checker;
 use crate::lexer::SourceSpan;
 use crate::parser::parse;
 use crate::temporal::checker::TemporalAnalyzer;
@@ -81,7 +81,7 @@ impl TemporalChecker {
     /// Parses, type-checks, and analyzes source text.
     #[must_use]
     pub fn check_source(&self, source: &str) -> TemporalCheckOutput {
-        let type_output = checker::check(source);
+        let type_output = type_checker::check(source);
         let normalized_source = type_output.normalized_source.clone();
 
         if !type_output.errors.is_empty() {
