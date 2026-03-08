@@ -1,0 +1,43 @@
+{
+  "description": "Golden source map for sourcemap_hello.lyra (P1-031)",
+  "golden_version": "1",
+  "source_uri": "source://lyra",
+  "format_version": "lyrasourcemap/v1",
+  "entries": [
+    {
+      "source_line": 1,
+      "source_column": 1,
+      "source_span_start": 0,
+      "bytecode_offset": 0,
+      "entry_kind": "LetBinding",
+      "notes": "let x = 42"
+    },
+    {
+      "source_line": 2,
+      "source_column": 1,
+      "source_span_start": 11,
+      "bytecode_offset": 2,
+      "entry_kind": "LetBinding",
+      "notes": "let y = true"
+    },
+    {
+      "source_line": 3,
+      "source_column": 1,
+      "source_span_start": 23,
+      "bytecode_offset": 4,
+      "entry_kind": "Expression",
+      "notes": "tail expression: x"
+    }
+  ],
+  "index": {
+    "by_bytecode_offset": [[0, 0], [2, 1], [4, 2]],
+    "by_source_line":     [[1, 0], [2, 1], [3, 2]]
+  },
+  "debugger_hints": [
+    { "kind": "ScopeEntry",     "source_line": 1, "bytecode_offset": 0 },
+    { "kind": "BreakpointSite", "source_line": 1, "bytecode_offset": 0, "description": "let binding: x" },
+    { "kind": "BreakpointSite", "source_line": 2, "bytecode_offset": 2, "description": "let binding: y" },
+    { "kind": "StepPoint",      "source_line": 3, "bytecode_offset": 4, "description": "tail expression evaluation" },
+    { "kind": "ScopeExit",      "source_line": 3, "bytecode_offset": 4 }
+  ]
+}

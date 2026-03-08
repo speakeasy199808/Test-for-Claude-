@@ -1,0 +1,78 @@
+{
+  "description": "Sample REPL session transcript for LyraLang P1-029",
+  "session": [
+    {
+      "input": "let x = 42",
+      "result": { "Value": "42" },
+      "type_info": "Int",
+      "effect_info": "{}",
+      "session_snapshot": {
+        "eval_count": 1,
+        "binding_count": 1,
+        "last_type": "Int"
+      }
+    },
+    {
+      "input": "let y = true",
+      "result": { "Value": "true" },
+      "type_info": "Bool",
+      "effect_info": "{}",
+      "session_snapshot": {
+        "eval_count": 2,
+        "binding_count": 2,
+        "last_type": "Bool"
+      }
+    },
+    {
+      "input": ":type 42",
+      "result": { "TypeQuery": "Int" },
+      "type_info": null,
+      "effect_info": null,
+      "session_snapshot": {
+        "eval_count": 2,
+        "binding_count": 2,
+        "last_type": null
+      }
+    },
+    {
+      "input": ":state",
+      "result": {
+        "StateQuery": {
+          "bindings": [
+            {
+              "name": "x",
+              "type_info": "Int",
+              "value_summary": "42",
+              "eval_index": 1
+            },
+            {
+              "name": "y",
+              "type_info": "Bool",
+              "value_summary": "true",
+              "eval_index": 2
+            }
+          ],
+          "eval_count": 2
+        }
+      },
+      "type_info": null,
+      "effect_info": null,
+      "session_snapshot": {
+        "eval_count": 2,
+        "binding_count": 2,
+        "last_type": null
+      }
+    },
+    {
+      "input": ":reset",
+      "result": "Reset",
+      "type_info": null,
+      "effect_info": null,
+      "session_snapshot": {
+        "eval_count": 0,
+        "binding_count": 0,
+        "last_type": null
+      }
+    }
+  ]
+}

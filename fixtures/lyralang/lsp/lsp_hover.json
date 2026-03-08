@@ -1,0 +1,20 @@
+{
+  "description": "Sample LSP hover request and expected response for LyraLang P1-030",
+  "document": {
+    "uri": "file:///workspace/hello.lyra",
+    "content": "let x = 42\nlet y = true\nx"
+  },
+  "request": {
+    "type": "Hover",
+    "params": {
+      "uri": "file:///workspace/hello.lyra",
+      "line": 0,
+      "character": 4
+    }
+  },
+  "expected_response": {
+    "type": "Hover",
+    "contents": "```lyra\nx : Int\n```",
+    "range": null
+  }
+}

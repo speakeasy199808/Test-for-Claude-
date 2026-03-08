@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LyraLang LSP Interface v1",
+  "description": "Machine-readable specification for the lyralang::lsp public API (P1-030)",
+  "version": "1.0.0",
+  "module": "lyralang::lsp",
+  "server_info": {
+    "name": "lyralang-lsp",
+    "version": "0.1.0"
+  },
+  "types": {
+    "LspServer": {
+      "kind": "struct",
+      "description": "LSP engine with document store",
+      "methods": [
+        { "name": "new",             "signature": "() -> LspServer",                                 "description": "Create a new server" },
+        { "name": "handle_request",  "signature": "(&mut self, LspRequest) -> LspResponse",         "description": "Dispatch one request" },
+        { "name": "update_document", "signature": "(&mut self, uri: &str, content: &str)",           "description": "Store document + refresh diagnostics" },
+        { "name": "get_diagnostics", "signature": "(&self, uri: &str) -> Vec<LspDiagnostic>",       "description": "Return cached diagnostics" }
+      ]
+    },
+    "LspRequest": {
+      "kind": "enum",
+      "variants": [
+        "Initialize(InitializeParams)",
+        "DidOpen { uri: String, content: String }",
+        "DidChange { uri: String, content: String }",
+        "Hover(HoverParams)",
+        "Completion(CompletionParams)",
+        "GotoDefinition(GotoDefinitionParams)",
+        "PublishDiagnostics { uri: String }",
+        "Shutdown"
+      ]
+    },
+    "LspResponse": {
+      "kind": "enum",
+      "variants": [
+        "Initialized { server_name: String, server_version: String }",
+        "Hover(Option<HoverResult>)",
+        "Completion(Vec<LspCompletionItem>)",
+        "GotoDefinition(Option<LspLocation>)",
+        "Diagnostics(Vec<LspDiagnostic>)",
+        "Ok",
+        "Error { code: i32, message: String }"
+      ]
+    },
+    "LspPosition": {
+      "kind": "struct",
+      "fields": {
+        "line":      { "type": "u32", "description": "Zero-based line number" },
+        "character": { "type": "u32", "description": "Zero-based UTF-16 character offset" }
+      }
+    },
+    "LspRange": {
+      "kind": "struct",
+      "fields": {
+        "start": { "type": "LspPosition" },
+        "end":   { "type": "LspPosition" }
+      }
+    },
+    "LspDiagnostic": {
+      "kind": "struct",
+      "fields": {
+        "range":    { "type": "LspRange",              "description": "Diagnostic range" },
+        "severity": { "type": "LspDiagnosticSeverity","description": "Severity level" },
+        "message":  { "type": "String",               "description": "Diagnostic text" },
+        "source":   { "type": "String",               "description": "Always \"lyralang\"" }
+      }
+    },
+    "LspDiagnosticSeverity": {
+      "kind": "enum",
+      "variants": ["Error", "Warning", "Information", "Hint"]
+    },
+    "LspCompletionItem": {
+      "kind": "struct",
+      "fields": {
+        "label":         { "type": "String" },
+        "kind":          { "type": "LspCompletionKind" },
+        "detail":        { "type": "Option<String>" },
+        "documentation": { "type": "Option<String>" },
+        "insert_text":   { "type": "String" }
+      }
+    },
+    "LspCompletionKind": {
+      "kind": "enum",
+      "variants": ["Keyword", "Function", "Variable", "Type", "Module"]
+    },
+    "HoverResult": {
+      "kind": "struct",
+      "fields": {
+        "contents": { "type": "String",         "description": "Markdown hover text" },
+        "range":    { "type": "Option<LspRange>","description": "Optional highlight range" }
+      }
+    },
+    "LspLocation": {
+      "kind": "struct",
+      "fields": {
+        "uri":   { "type": "String" },
+        "range": { "type": "LspRange" }
+      }
+    }
+  },
+  "document_store": "BTreeMap<String, String>",
+  "diagnostics_cache": "BTreeMap<String, Vec<LspDiagnostic>>"
+}

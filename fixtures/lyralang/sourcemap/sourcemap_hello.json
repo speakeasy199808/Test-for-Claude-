@@ -1,0 +1,63 @@
+{
+  "description": "Expected source map for sourcemap_hello.lyra (P1-031)",
+  "source_uri": "source://lyra",
+  "format_version": "lyrasourcemap/v1",
+  "entries": [
+    {
+      "source_line": 1,
+      "source_column": 1,
+      "source_span_start": 0,
+      "bytecode_offset": 0,
+      "ir_instruction": "const r0 = Int(42)",
+      "entry_kind": "LetBinding"
+    },
+    {
+      "source_line": 2,
+      "source_column": 1,
+      "source_span_start": 11,
+      "bytecode_offset": 2,
+      "ir_instruction": "const r1 = Bool(true)",
+      "entry_kind": "LetBinding"
+    },
+    {
+      "source_line": 3,
+      "source_column": 1,
+      "source_span_start": 23,
+      "bytecode_offset": 4,
+      "ir_instruction": "load r0",
+      "entry_kind": "Expression"
+    }
+  ],
+  "debugger_hints": [
+    {
+      "kind": "ScopeEntry",
+      "description": "program scope entry",
+      "source_line": 1,
+      "bytecode_offset": 0
+    },
+    {
+      "kind": "BreakpointSite",
+      "description": "let binding: x",
+      "source_line": 1,
+      "bytecode_offset": 0
+    },
+    {
+      "kind": "BreakpointSite",
+      "description": "let binding: y",
+      "source_line": 2,
+      "bytecode_offset": 2
+    },
+    {
+      "kind": "StepPoint",
+      "description": "tail expression evaluation",
+      "source_line": 3,
+      "bytecode_offset": 4
+    },
+    {
+      "kind": "ScopeExit",
+      "description": "program scope exit",
+      "source_line": 3,
+      "bytecode_offset": 4
+    }
+  ]
+}

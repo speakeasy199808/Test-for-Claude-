@@ -1,0 +1,14 @@
+{
+  "fixture": "fixtures/lyralang/probabilistic/prob_sampling.lyra",
+  "module": "prob_sampling_error",
+  "symbolic_only": false,
+  "distribution_count": 1,
+  "bayesian_update_count": 0,
+  "expected_errors": [
+    {
+      "kind": "sampling_detected",
+      "message": "`dist_sample` is forbidden in symbolic probabilistic mode — use symbolic distribution operations only",
+      "recovered": false
+    }
+  ]
+}

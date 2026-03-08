@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LyraLang REPL Interface v1",
+  "description": "Machine-readable specification for the lyralang::repl public API (P1-029)",
+  "version": "1.0.0",
+  "module": "lyralang::repl",
+  "types": {
+    "Repl": {
+      "kind": "struct",
+      "description": "Stateful REPL engine",
+      "methods": [
+        { "name": "new",           "signature": "() -> Repl",                                       "description": "Create a new engine with an empty session" },
+        { "name": "evaluate",      "signature": "(&mut self, input: &str) -> ReplOutput",           "description": "Evaluate one line of input" },
+        { "name": "get_completions","signature": "(&self, partial: &str) -> Vec<CompletionSuggestion>", "description": "Tab completions for partial input" },
+        { "name": "inspect_state", "signature": "(&self) -> ReplState",                            "description": "Return current session state" },
+        { "name": "reset",         "signature": "(&mut self)",                                     "description": "Clear session bindings and history" }
+      ]
+    },
+    "ReplOutput": {
+      "kind": "struct",
+      "fields": {
+        "input":            { "type": "String",               "description": "Original input string" },
+        "result":           { "type": "ReplResult",           "description": "Evaluation result payload" },
+        "type_info":        { "type": "Option<String>",       "description": "Canonical type of result" },
+        "effect_info":      { "type": "Option<String>",       "description": "Effect annotation" },
+        "session_snapshot": { "type": "ReplSessionSnapshot",  "description": "Session state after evaluation" }
+      }
+    },
+    "ReplResult": {
+      "kind": "enum",
+      "variants": [
+        { "name": "Value",      "payload": "String",    "description": "Non-unit evaluated value" },
+        { "name": "Unit",       "payload": null,        "description": "Unit () result" },
+        { "name": "Error",      "payload": "Vec<String>","description": "Compiler error messages" },
+        { "name": "TypeQuery",  "payload": "String",    "description": "Response to :type command" },
+        { "name": "StateQuery", "payload": "ReplState", "description": "Response to :state command" },
+        { "name": "Reset",      "payload": null,        "description": ":reset executed" }
+      ]
+    },
+    "ReplSessionSnapshot": {
+      "kind": "struct",
+      "fields": {
+        "eval_count":    { "type": "usize",         "description": "Total evaluations" },
+        "binding_count": { "type": "usize",         "description": "Active let bindings" },
+        "last_type":     { "type": "Option<String>","description": "Type of last result" }
+      }
+    },
+    "ReplBinding": {
+      "kind": "struct",
+      "fields": {
+        "name":          { "type": "String", "description": "Bound identifier" },
+        "type_info":     { "type": "String", "description": "Canonical type" },
+        "value_summary": { "type": "String", "description": "Rendered value" },
+        "eval_index":    { "type": "usize",  "description": "Evaluation index of introduction" }
+      }
+    },
+    "ReplHistoryEntry": {
+      "kind": "struct",
+      "fields": {
+        "index":          { "type": "usize",  "description": "Sequential index" },
+        "input":          { "type": "String", "description": "Original input" },
+        "result_summary": { "type": "String", "description": "Short result text" }
+      }
+    },
+    "ReplState": {
+      "kind": "struct",
+      "fields": {
+        "bindings":   { "type": "Vec<ReplBinding>", "description": "Active bindings" },
+        "eval_count": { "type": "usize",            "description": "Total evaluations" }
+      }
+    },
+    "CompletionSuggestion": {
+      "kind": "struct",
+      "fields": {
+        "text":   { "type": "String",           "description": "Completion text" },
+        "kind":   { "type": "CompletionKind",   "description": "Semantic category" },
+        "detail": { "type": "Option<String>",   "description": "Optional detail" }
+      }
+    },
+    "CompletionKind": {
+      "kind": "enum",
+      "variants": ["Keyword", "Builtin", "Binding", "Type"]
+    },
+    "ReplError": {
+      "kind": "struct",
+      "fields": {
+        "kind":    { "type": "ReplErrorKind", "description": "Error category" },
+        "message": { "type": "String",        "description": "Diagnostic text" }
+      }
+    },
+    "ReplErrorKind": {
+      "kind": "enum",
+      "variants": ["ParseError", "TypeError", "EvalError"]
+    }
+  },
+  "meta_commands": {
+    ":type <expr>": "Return canonical type of <expr>",
+    ":state":       "Dump current session bindings",
+    ":reset":       "Clear all bindings and history"
+  },
+  "completion_keywords": ["let", "if", "match", "fn", "true", "false"],
+  "completion_builtins":  ["add", "eq", "some", "ok", "err", "spawn", "join"]
+}

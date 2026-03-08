@@ -1,0 +1,27 @@
+{
+  "description": "Sample LSP diagnostics output for a program with a type error (P1-030)",
+  "document": {
+    "uri": "file:///workspace/bad.lyra",
+    "content": "let x = unknown_identifier"
+  },
+  "request": {
+    "type": "PublishDiagnostics",
+    "params": {
+      "uri": "file:///workspace/bad.lyra"
+    }
+  },
+  "expected_response": {
+    "type": "Diagnostics",
+    "diagnostics": [
+      {
+        "range": {
+          "start": { "line": 0, "character": 8 },
+          "end":   { "line": 0, "character": 26 }
+        },
+        "severity": "Error",
+        "message": "unbound identifier: unknown_identifier",
+        "source": "lyralang"
+      }
+    ]
+  }
+}

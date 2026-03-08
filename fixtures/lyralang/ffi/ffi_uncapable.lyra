@@ -1,0 +1,1 @@
+let result = ffi_c_write(0)

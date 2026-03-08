@@ -1,0 +1,4 @@
+module prob_sampling_error
+let d = dist_bernoulli(q)
+let s = dist_sample(d)
+s

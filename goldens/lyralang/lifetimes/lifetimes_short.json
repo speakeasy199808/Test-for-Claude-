@@ -1,0 +1,36 @@
+{
+  "fixture": "fixtures/lyralang/lifetimes/lifetimes_short.lyra",
+  "normalized_source": "let outer = 1\nlet inner = { let scoped = 2 }\n",
+  "judgment": {
+    "module": null,
+    "bindings": [
+      {
+        "name": "outer",
+        "inferred_region": "'a",
+        "borrow_kind": "SharedRef",
+        "span": {}
+      },
+      {
+        "name": "scoped",
+        "inferred_region": "'b",
+        "borrow_kind": "SharedRef",
+        "span": {}
+      },
+      {
+        "name": "inner",
+        "inferred_region": "'c",
+        "borrow_kind": "SharedRef",
+        "span": {}
+      }
+    ],
+    "regions": [
+      { "lhs": "'a", "rhs": "'program", "constraint": "Outlives" },
+      { "lhs": "'b", "rhs": "'a", "constraint": "SameScopeAs" },
+      { "lhs": "'c", "rhs": "'program", "constraint": "Outlives" }
+    ],
+    "dangling_free": true,
+    "elision_applied": ["outer"],
+    "span": {}
+  },
+  "errors": []
+}

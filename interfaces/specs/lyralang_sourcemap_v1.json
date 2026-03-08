@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LyraLang Source Map Interface v1",
+  "description": "Machine-readable specification for the lyralang::sourcemap public API (P1-031)",
+  "version": "1.0.0",
+  "module": "lyralang::sourcemap",
+  "format": {
+    "source_uri":      "source://lyra",
+    "format_version":  "lyrasourcemap/v1",
+    "line_numbering":  "1-based",
+    "column_numbering": "1-based",
+    "span_offsets":    "byte offsets into normalized source"
+  },
+  "types": {
+    "SourceMapGenerator": {
+      "kind": "struct",
+      "description": "Stateless source-map generator",
+      "methods": [
+        { "name": "new",             "signature": "() -> SourceMapGenerator",                        "description": "Create a generator" },
+        { "name": "generate_source", "signature": "(&self, source: &str) -> SourceMapOutput",        "description": "Run full pipeline and return map" }
+      ]
+    },
+    "generate": {
+      "kind": "fn",
+      "signature": "(source: &str) -> SourceMapOutput",
+      "description": "Convenience wrapper using default generator"
+    },
+    "SourceMapOutput": {
+      "kind": "struct",
+      "fields": {
+        "normalized_source": { "type": "String" },
+        "source_map":        { "type": "Option<SourceMap>" },
+        "errors":            { "type": "Vec<SourceMapError>" }
+      }
+    },
+    "SourceMap": {
+      "kind": "struct",
+      "fields": {
+        "source_uri":      { "type": "String",               "value": "source://lyra" },
+        "format_version":  { "type": "String",               "value": "lyrasourcemap/v1" },
+        "entries":         { "type": "Vec<SourceMapEntry>" },
+        "index":           { "type": "SourceMapIndex" },
+        "debugger_hints":  { "type": "Vec<DebuggerHint>" }
+      }
+    },
+    "SourceMapEntry": {
+      "kind": "struct",
+      "fields": {
+        "source_line":       { "type": "u32",               "description": "1-based" },
+        "source_column":     { "type": "u32",               "description": "1-based" },
+        "source_span_start": { "type": "usize",             "description": "byte offset" },
+        "source_span_end":   { "type": "usize",             "description": "byte offset (exclusive)" },
+        "bytecode_offset":   { "type": "u32",               "description": "IR instruction index" },
+        "ir_instruction":    { "type": "String",            "description": "Canonical IR text" },
+        "entry_kind":        { "type": "SourceMapEntryKind" }
+      }
+    },
+    "SourceMapEntryKind": {
+      "kind": "enum",
+      "variants": ["LetBinding", "Expression", "FunctionCall", "ControlFlow", "Literal"]
+    },
+    "SourceMapIndex": {
+      "kind": "struct",
+      "fields": {
+        "by_bytecode_offset": { "type": "Vec<(u32, usize)>", "description": "Sorted by bytecode offset" },
+        "by_source_line":     { "type": "Vec<(u32, usize)>", "description": "Sorted by source line" }
+      }
+    },
+    "DebuggerHint": {
+      "kind": "struct",
+      "fields": {
+        "kind":            { "type": "DebuggerHintKind" },
+        "description":     { "type": "String" },
+        "source_line":     { "type": "u32" },
+        "bytecode_offset": { "type": "u32" }
+      }
+    },
+    "DebuggerHintKind": {
+      "kind": "enum",
+      "variants": ["BreakpointSite", "StepPoint", "ScopeEntry", "ScopeExit"]
+    },
+    "SourceMapError": {
+      "kind": "struct",
+      "fields": {
+        "kind":      { "type": "SourceMapErrorKind" },
+        "message":   { "type": "String" },
+        "span":      { "type": "crate::lexer::span::SourceSpan" },
+        "recovered": { "type": "bool" }
+      }
+    },
+    "SourceMapErrorKind": {
+      "kind": "enum",
+      "variants": ["ParseError", "CodegenError", "MappingInconsistency"]
+    }
+  },
+  "pipeline": [
+    "crate::parser::parse(source)",
+    "crate::codegen::generate(source)",
+    "Walk AST and pair each node with next instruction index",
+    "Build SourceMapIndex",
+    "Emit DebuggerHints"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "fixture": "fixtures/lyralang/lifetimes/lifetimes_valid.lyra",
+  "normalized_source": "let x = 42\nlet y = true\nlet name = \"hello\"\n",
+  "judgment": {
+    "module": null,
+    "bindings": [
+      {
+        "name": "x",
+        "inferred_region": "'a",
+        "borrow_kind": "SharedRef",
+        "span": {}
+      },
+      {
+        "name": "y",
+        "inferred_region": "'b",
+        "borrow_kind": "SharedRef",
+        "span": {}
+      },
+      {
+        "name": "name",
+        "inferred_region": "'static",
+        "borrow_kind": "Static",
+        "span": {}
+      }
+    ],
+    "regions": [
+      { "lhs": "'a", "rhs": "'program", "constraint": "Outlives" },
+      { "lhs": "'b", "rhs": "'program", "constraint": "Outlives" },
+      { "lhs": "'static", "rhs": "'static", "constraint": "Static" }
+    ],
+    "dangling_free": true,
+    "elision_applied": ["x"],
+    "span": {}
+  },
+  "errors": []
+}

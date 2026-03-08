@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "module": "probabilistic",
+  "task": "P1-024",
+  "description": "Probabilistic symbolic checker — distribution types and Bayesian updates",
+  "builtins": {
+    "dist_uniform": {
+      "arity": 2,
+      "parameters": ["lo", "hi"],
+      "produces": "DistributionKind::Uniform",
+      "pdf": "Uniform[lo, hi]: pdf(x) = 1/(hi-lo) for x in [lo, hi]"
+    },
+    "dist_bernoulli": {
+      "arity": 1,
+      "parameters": ["p"],
+      "produces": "DistributionKind::Bernoulli",
+      "pdf": "Bernoulli[p]: P(1)=p, P(0)=1-p (symbolic)"
+    },
+    "dist_bayesian_update": {
+      "arity": 2,
+      "parameters": ["prior", "likelihood"],
+      "produces": "DistributionKind::Derived",
+      "update_form": "P(posterior) ∝ P(likelihood|prior)"
+    },
+    "dist_sample": {
+      "arity": 1,
+      "parameters": ["dist"],
+      "produces": "ProbabilisticErrorKind::SamplingDetected",
+      "forbidden": true,
+      "reason": "sampling is forbidden in symbolic probabilistic mode"
+    }
+  },
+  "output_type": "ProbabilisticCheckOutput",
+  "symbolic_only_semantics": "true iff no SamplingDetected error was produced",
+  "normalization": "source_order_distribution_collection"
+}

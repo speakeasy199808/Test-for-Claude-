@@ -1,0 +1,2 @@
+let cap = Capability()
+let result = ffi_rust_read(cap, 42)

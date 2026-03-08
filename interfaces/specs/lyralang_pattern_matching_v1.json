@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "module": "lyralang::patterns",
+  "task": "P1-012",
+  "description": "Pattern matching exhaustiveness checker for LyraLang Stage 0",
+  "checker": {
+    "struct": "PatternChecker",
+    "constructor": "PatternChecker::new()",
+    "method": "check_source(&str) -> PatternCheckOutput"
+  },
+  "free_function": "check(&str) -> PatternCheckOutput",
+  "output_type": "PatternCheckOutput",
+  "output_fields": {
+    "normalized_source": "String",
+    "judgment": "Option<PatternProgramJudgment>",
+    "errors": "Vec<PatternError>"
+  },
+  "judgment_type": "PatternProgramJudgment",
+  "judgment_fields": {
+    "module": "Option<String>",
+    "match_expressions": "Vec<MatchExhaustivenessReport>",
+    "exhaustive": "bool",
+    "span": "SourceSpan"
+  },
+  "report_type": "MatchExhaustivenessReport",
+  "report_fields": {
+    "match_index": "usize",
+    "arm_count": "usize",
+    "has_wildcard": "bool",
+    "covered_patterns": "Vec<String>",
+    "exhaustive": "bool",
+    "missing_cases": "Vec<String>",
+    "span": "SourceSpan"
+  },
+  "error_type": "PatternError",
+  "error_fields": {
+    "kind": "PatternErrorKind",
+    "message": "String",
+    "span": "SourceSpan",
+    "recovered": "bool"
+  },
+  "error_kinds": [
+    "ParseError",
+    "NonExhaustiveMatch",
+    "UnreachablePattern",
+    "DuplicatePattern"
+  ],
+  "exhaustiveness_rules": {
+    "wildcard_or_identifier": "always exhaustive",
+    "boolean": "exhaustive iff true and false both covered",
+    "integer_or_string": "exhaustive only with wildcard arm",
+    "opaque_identifier_scrutinee": "exhaustive by convention"
+  }
+}

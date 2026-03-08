@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "module": "proof",
+  "task": "P1-025",
+  "description": "Proof construction checker — proof blocks, obligations, and verifiable artifacts",
+  "builtins": {
+    "assume": {
+      "arity": 1,
+      "parameters": ["expr"],
+      "effect": "adds hypothesis to current proof block"
+    },
+    "assert_eq": {
+      "arity": 2,
+      "parameters": ["lhs", "rhs"],
+      "effect": "adds claim to current proof block"
+    },
+    "qed": {
+      "arity": 0,
+      "parameters": [],
+      "effect": "discharges current proof block; triggers flush of implicit block"
+    },
+    "proof_begin": {
+      "arity": 0,
+      "parameters": [],
+      "effect": "opens an explicit proof block (alternative to implicit accumulation)"
+    },
+    "proof_end": {
+      "arity": 0,
+      "parameters": [],
+      "effect": "closes an explicit proof block and triggers finalization"
+    }
+  },
+  "validity_rule": "a proof block is valid iff it has at least one hypothesis, at least one claim, and qed() is present",
+  "error_on_undischarged": "UndischargedObligation (recovered=true) when claims exist but qed() is absent",
+  "obligation_id_scheme": "PO-{zero_based_index}",
+  "artifact_id_scheme": "PA-{zero_based_index}",
+  "artifact_kinds": ["AssumptionRecord", "ClaimVerification", "DischargeReceipt", "ProofSummary"],
+  "type_system_anchors": {
+    "effect_atom": "EffectAtom::Proof",
+    "evidence_kind": "EvidenceKind::Proof",
+    "evidence_type": "Type::Evidence(EvidenceKind::Proof)"
+  },
+  "output_type": "ProofCheckOutput",
+  "normalization": "source_order_proof_block_collection"
+}

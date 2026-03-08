@@ -1,0 +1,18 @@
+{
+  "description": "Golden hover response for the LyraLang LSP hover fixture (P1-030)",
+  "golden_version": "1",
+  "document_uri": "file:///workspace/hello.lyra",
+  "document_content": "let x = 42\nlet y = true\nx",
+  "request": {
+    "type": "Hover",
+    "line": 0,
+    "character": 4
+  },
+  "expected": {
+    "type": "Hover",
+    "result": {
+      "contents": "```lyra\nx : Int\n```",
+      "range": null
+    }
+  }
+}

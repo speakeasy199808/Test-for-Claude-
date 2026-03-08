@@ -1,0 +1,5 @@
+module prob_demo
+let prior = dist_uniform(0, 1)
+let coin = dist_bernoulli(p)
+let posterior = dist_bayesian_update(prior, coin)
+posterior

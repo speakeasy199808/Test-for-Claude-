@@ -1,0 +1,25 @@
+{
+  "fixture": "fixtures/lyralang/proof/proof_valid.lyra",
+  "module": "proof_demo",
+  "all_discharged": true,
+  "proof_block_count": 1,
+  "proof_blocks": [
+    {
+      "index": 0,
+      "hypotheses": ["assume(eq(1, 1))"],
+      "claims": ["assert_eq(1 == 1)"],
+      "qed_present": true,
+      "valid": true
+    }
+  ],
+  "obligation_count": 1,
+  "obligations": [
+    {
+      "obligation_id": "PO-0",
+      "discharged": true,
+      "discharge_evidence": "qed: proof-term discharge via EffectAtom::Proof"
+    }
+  ],
+  "artifact_count": 4,
+  "errors": []
+}

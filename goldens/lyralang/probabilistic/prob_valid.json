@@ -1,0 +1,36 @@
+{
+  "fixture": "fixtures/lyralang/probabilistic/prob_valid.lyra",
+  "module": "prob_demo",
+  "symbolic_only": true,
+  "distribution_count": 3,
+  "bayesian_update_count": 1,
+  "distributions": [
+    {
+      "name": "prior",
+      "distribution_kind": "Uniform",
+      "parameter_summaries": ["0", "1"],
+      "pdf_description": "Uniform[lo=0, hi=1]: pdf(x) = 1/(hi-lo) for x in [lo, hi]"
+    },
+    {
+      "name": "coin",
+      "distribution_kind": "Bernoulli",
+      "parameter_summaries": ["p"],
+      "pdf_description": "Bernoulli[p=p]: P(1)=p, P(0)=1-p (symbolic)"
+    },
+    {
+      "name": "posterior",
+      "distribution_kind": "Derived",
+      "parameter_summaries": ["prior=prior", "likelihood=coin"],
+      "pdf_description": "Derived[prior=prior, likelihood=coin]: posterior via Bayes' theorem"
+    }
+  ],
+  "bayesian_updates": [
+    {
+      "prior_name": "prior",
+      "likelihood_name": "coin",
+      "posterior_name": "posterior",
+      "update_description": "P(posterior) ∝ P(coin|prior)"
+    }
+  ],
+  "errors": []
+}

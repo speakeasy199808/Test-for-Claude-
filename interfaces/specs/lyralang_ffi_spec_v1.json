@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "module": "lyralang::ffi",
+  "task": "P1-014",
+  "description": "FFI specification and safety boundary checker for LyraLang Stage 0",
+  "checker": {
+    "struct": "FfiChecker",
+    "constructor": "FfiChecker::new()",
+    "method": "check_source(&str) -> FfiCheckOutput"
+  },
+  "free_function": "check(&str) -> FfiCheckOutput",
+  "output_type": "FfiCheckOutput",
+  "output_fields": {
+    "normalized_source": "String",
+    "judgment": "Option<FfiProgramJudgment>",
+    "errors": "Vec<FfiError>"
+  },
+  "judgment_type": "FfiProgramJudgment",
+  "judgment_fields": {
+    "module": "Option<String>",
+    "ffi_calls": "Vec<FfiCallSummary>",
+    "safety_boundary": "SafetyBoundary",
+    "required_capabilities": "Vec<String>",
+    "marshalling_rules": "Vec<MarshallingRule>",
+    "span": "SourceSpan"
+  },
+  "call_summary_type": "FfiCallSummary",
+  "call_summary_fields": {
+    "callee": "String",
+    "target_language": "FfiTarget",
+    "required_capability": "String",
+    "marshalled_params": "Vec<String>",
+    "return_marshalling": "String",
+    "span": "SourceSpan"
+  },
+  "ffi_targets": ["Rust", "C", "Unknown"],
+  "target_detection": {
+    "ffi_rust_*": "Rust",
+    "ffi_c_*": "C",
+    "ffi_*": "Unknown"
+  },
+  "safety_boundary_type": "SafetyBoundary",
+  "safety_boundary_fields": {
+    "all_calls_gated": "bool",
+    "unsafe_blocks_present": "bool (always false at Stage 0)",
+    "boundary_description": "String"
+  },
+  "marshalling_rule_type": "MarshallingRule",
+  "marshalling_rule_fields": {
+    "lyra_type": "String",
+    "foreign_type": "String",
+    "direction": "MarshalDirection",
+    "conversion": "String"
+  },
+  "marshal_directions": ["LyraToForeign", "ForeignToLyra", "Bidirectional"],
+  "canonical_marshalling_rules": [
+    { "lyra_type": "Int",    "foreign_type": "i64",       "direction": "Bidirectional" },
+    { "lyra_type": "Bool",   "foreign_type": "bool",      "direction": "Bidirectional" },
+    { "lyra_type": "String", "foreign_type": "*const u8", "direction": "LyraToForeign" },
+    { "lyra_type": "Unit",   "foreign_type": "void",      "direction": "Bidirectional" }
+  ],
+  "error_type": "FfiError",
+  "error_fields": {
+    "kind": "FfiErrorKind",
+    "message": "String",
+    "span": "SourceSpan",
+    "recovered": "bool"
+  },
+  "error_kinds": [
+    "ParseError",
+    "MissingCapability",
+    "UnsafeTypeMarshalling",
+    "UnknownFfiTarget"
+  ],
+  "capability_gating": "FFI calls require a Capability() binding to appear in scope before the call site"
+}

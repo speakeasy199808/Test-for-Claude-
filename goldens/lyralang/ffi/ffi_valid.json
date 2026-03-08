@@ -1,0 +1,51 @@
+{
+  "fixture": "fixtures/lyralang/ffi/ffi_valid.lyra",
+  "normalized_source": "let cap = Capability()\nlet result = ffi_rust_read(cap, 42)\n",
+  "judgment": {
+    "module": null,
+    "ffi_calls": [
+      {
+        "callee": "ffi_rust_read",
+        "target_language": "Rust",
+        "required_capability": "Capability",
+        "marshalled_params": ["marshal(cap)", "i64"],
+        "return_marshalling": "i64",
+        "span": {}
+      }
+    ],
+    "safety_boundary": {
+      "all_calls_gated": true,
+      "unsafe_blocks_present": false,
+      "boundary_description": "All FFI call sites are gated by a Capability binding in scope. No unsafe blocks present (forbidden by crate policy)."
+    },
+    "required_capabilities": ["Capability"],
+    "marshalling_rules": [
+      {
+        "lyra_type": "Int",
+        "foreign_type": "i64",
+        "direction": "Bidirectional",
+        "conversion": "Lyra Int is represented as a 64-bit signed integer in foreign ABIs"
+      },
+      {
+        "lyra_type": "Bool",
+        "foreign_type": "bool",
+        "direction": "Bidirectional",
+        "conversion": "Lyra Bool maps to the C99/Rust bool type (0 = false, 1 = true)"
+      },
+      {
+        "lyra_type": "String",
+        "foreign_type": "*const u8",
+        "direction": "LyraToForeign",
+        "conversion": "Lyra String is passed as a null-terminated UTF-8 pointer to foreign functions"
+      },
+      {
+        "lyra_type": "Unit",
+        "foreign_type": "void",
+        "direction": "Bidirectional",
+        "conversion": "Lyra Unit corresponds to void in C and () in Rust"
+      }
+    ],
+    "span": {}
+  },
+  "errors": []
+}

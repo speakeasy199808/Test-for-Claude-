@@ -1,0 +1,31 @@
+{
+  "fixture": "fixtures/lyralang/proof/proof_undischarged.lyra",
+  "module": "proof_undischarged",
+  "all_discharged": false,
+  "proof_block_count": 1,
+  "proof_blocks": [
+    {
+      "index": 0,
+      "hypotheses": ["assume(eq(2, 2))"],
+      "claims": ["assert_eq(2 == 2)"],
+      "qed_present": false,
+      "valid": false
+    }
+  ],
+  "obligation_count": 1,
+  "obligations": [
+    {
+      "obligation_id": "PO-0",
+      "discharged": false,
+      "discharge_evidence": null
+    }
+  ],
+  "artifact_count": 0,
+  "expected_errors": [
+    {
+      "kind": "undischarged_obligation",
+      "message": "proof block 0 has 1 claim(s) but no `qed()` discharge",
+      "recovered": true
+    }
+  ]
+}

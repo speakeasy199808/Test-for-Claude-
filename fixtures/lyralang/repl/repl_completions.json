@@ -1,0 +1,36 @@
+{
+  "description": "Sample tab-completion suggestions for the LyraLang REPL (P1-029)",
+  "cases": [
+    {
+      "partial": "l",
+      "expected_suggestions": [
+        { "text": "let", "kind": "Keyword", "detail": null }
+      ]
+    },
+    {
+      "partial": "f",
+      "expected_suggestions": [
+        { "text": "false", "kind": "Keyword", "detail": null },
+        { "text": "fn",    "kind": "Keyword", "detail": null }
+      ]
+    },
+    {
+      "partial": "e",
+      "expected_suggestions": [
+        { "text": "eq",  "kind": "Builtin", "detail": "builtin function" },
+        { "text": "err", "kind": "Builtin", "detail": "builtin function" }
+      ]
+    },
+    {
+      "partial": "s",
+      "expected_suggestions": [
+        { "text": "some",  "kind": "Builtin", "detail": "builtin function" },
+        { "text": "spawn", "kind": "Builtin", "detail": "builtin function" }
+      ]
+    },
+    {
+      "partial": "",
+      "note": "Empty prefix returns all keywords and builtins plus session bindings"
+    }
+  ]
+}

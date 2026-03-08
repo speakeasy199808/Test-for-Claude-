@@ -1,0 +1,28 @@
+{
+  "fixture": "fixtures/lyralang/patterns/patterns_nonexhaustive.lyra",
+  "normalized_source": "let x = match true { true => 1 }\n",
+  "judgment": {
+    "module": null,
+    "match_expressions": [
+      {
+        "match_index": 0,
+        "arm_count": 1,
+        "has_wildcard": false,
+        "covered_patterns": ["true"],
+        "exhaustive": false,
+        "missing_cases": ["false"],
+        "span": {}
+      }
+    ],
+    "exhaustive": false,
+    "span": {}
+  },
+  "errors": [
+    {
+      "kind": "NonExhaustiveMatch",
+      "message": "non-exhaustive match expression: missing case `false`",
+      "span": {},
+      "recovered": false
+    }
+  ]
+}

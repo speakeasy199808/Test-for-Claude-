@@ -1,0 +1,21 @@
+{
+  "fixture": "fixtures/lyralang/patterns/patterns_valid.lyra",
+  "normalized_source": "let x = match true { true => 1, false => 0 }\n",
+  "judgment": {
+    "module": null,
+    "match_expressions": [
+      {
+        "match_index": 0,
+        "arm_count": 2,
+        "has_wildcard": false,
+        "covered_patterns": ["true", "false"],
+        "exhaustive": true,
+        "missing_cases": [],
+        "span": {}
+      }
+    ],
+    "exhaustive": true,
+    "span": {}
+  },
+  "errors": []
+}
